@@ -1,3 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Qanelas";
+  src: url("../src/assets/fonts/Qanelas/Qanelas-Regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+/* @font-face {
+  font-family: "Qanelas";
+  src: url("../src/assets/fonts/Qanelas/Qanelas-RegularItalic.otf");
+  font-weight: 400;
+  font-style:italic;
+} */
+@font-face {
+  font-family: "Qanelas";
+  src: url("../src/assets/fonts/Qanelas/Qanelas-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Qanelas";
+  src: url("../src/assets/fonts/Qanelas/Qanelas-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Qanelas";
+  src: url("../src/assets/fonts/Qanelas/Qanelas-Light.otf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@layer components {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="url"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="time"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="checkbox"],
+  input[type="radio"],
+  select,
+  select[multiple],
+  textarea {
+    @apply tw-rounded tw-border-info-light;
+  }
+
+  .tw-shadow-card {
+    --tw-shadow: 0 8px 20px 0 #73706e14;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .tw-from-bg-social-icon-from {
+    --tw-gradient-from: #f5f1ef;
+    --tw-gradient-stops: var(--tw-gradient-from),
+      var(--tw-gradient-to, #f5f1ef00);
+  }
+  .tw-bg-gradient-to-tl {
+    background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+  }
+}
+@layer base {
+  html {
+    font-family: Qanelas;
+  }
+  .tw-font-qanelas {
+    font-family: Qanelas;
+  }
+}

@@ -1,16 +1,16 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { LiPhantomPageOrig } from "."
+import { LiPhantomSetupOrig } from "."
 
 export default {
   title: "DEMO/Original Linked In Setup",
-  component: LiPhantomPageOrig,
+  component: LiPhantomSetupOrig,
   parameters: {
     layout: "fullscreen",
   },
-} as ComponentMeta<typeof LiPhantomPageOrig>
+} as ComponentMeta<typeof LiPhantomSetupOrig>
 
-const Template: ComponentStory<typeof LiPhantomPageOrig> = args => (
-  <LiPhantomPageOrig />
+const Template: ComponentStory<typeof LiPhantomSetupOrig> = args => (
+  <LiPhantomSetupOrig />
 )
 
 export const SettingsFormat = Template.bind({})

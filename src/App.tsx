@@ -1,9 +1,9 @@
 import React from "react"
-import {LiPhantomPageOrig} from "./pages/LiPhantomPageOrig"
+import {LiPhantomSetupOrig} from "./pages/LiPhantomSetupOrig"
 import "./index.css"
 
 function App() {
-  return <LiPhantomPageOrig />
+  return <LiPhantomSetupOrig />
 }
 
 export default App

@@ -14,6 +14,7 @@ Recreate the most popular LinkedIn phantom with a modified UI.
 Include a new slide range component (will be used to communicate suggested limits).
 
 To show that I can not only recreate, but also create something new with tailwind, and that I understand your product and how a user interacts with it.
+Not to step on anyone's toes. This is only to show that I can think from the other perspective.
 
 ## PHASE III - Live case
 Create a new phantom for scraping leboncoin using components from either phase.

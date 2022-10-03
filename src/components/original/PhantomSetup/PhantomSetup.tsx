@@ -1,22 +1,16 @@
-import React from 'react'
-import { Header, PhantomConfig } from "./"
+import React from "react"
+import { Header, Settings } from "."
 import { BrowserRouter } from "react-router-dom"
 
-import { PhantomTypeOrig } from "../../../pages/data"
+import { PhantomTypeOrig } from "../../../pages/LiPhantomSetupOrig/data"
 
-
-interface PhantomSetupProps {
-  children?: React.ReactNode
-  phantom: PhantomTypeOrig
-}
-
-export const PhantomSetup = ({ phantom }: PhantomSetupProps) => {
+export const PhantomSetup = ({ phantom }: { phantom: PhantomTypeOrig }) => {
   return (
-    <div className='tw-container tw-mt-4 md:tw-mt-8 tw-mb-13'>
+    <div>
       <Header title={phantom.title} icon={phantom.icon} />
       <div className='setup-page'>
         <BrowserRouter>
-          <PhantomConfig steps={phantom.steps} />
+          <Settings steps={phantom.steps} />
         </BrowserRouter>
       </div>
     </div>
