@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export const Header = ({ title, icon }: HeaderProps) => {
   return (
-    <header className='tw-flex md:tw-items-center tw-flex-col md:tw-flex-row md:tw-justify-between'>
+    <header className='tw-flex tw-items-center tw-justify-between'>
       <div className='tw-flex '>
         <div className='tw-flex tw-items-center tw-justify-center tw-h-12 tw-w-12 tw-rounded-full tw-border tw-border-solid tw-border-white tw-bg-gradient-to-tl tw-from-[#f5f1ef] tw-to-white child:tw-w-6 child:tw-h-6'>
           {icon}
@@ -22,7 +22,7 @@ export const Header = ({ title, icon }: HeaderProps) => {
       <div className='controls tw-flex tw-space-x-4 tw-items-center'>
         <button className='tw-px-1'>
           {
-            <HiDotsHorizontal className='tw-fill-highlight tw-stroke-highlight' />
+            <HiDotsHorizontal className='tw-fill-highlight tw-stroke-highlight hover:tw-fill-hover hover:tw-stroke-highlight' />
           }
         </button>
         <Button size='base' style='secondary' label='Save &amp; close' />

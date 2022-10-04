@@ -11,7 +11,9 @@ module.exports = {
         transparent: "transparent",
         primary: "rgb(245 241 239)",
         highlight: "rgb(82 115 232)",
-        // "border-highlight": "blue"
+        hover: "rgb(59 86 186)",
+        success: "rgb(26 137 100)",
+        error: "rgb(148 27 16)",
         info: {
           light: "rgb(235 250 255)",
           DEFAULT: "rgb(13 134 171)",
@@ -39,6 +41,7 @@ module.exports = {
     function ({ addVariant }) {
       addVariant("child", "& > *")
       addVariant("child-hover", "& > *:hover")
+      addVariant("sibling", "& + *")
     },
   ],
   prefix: "tw-",

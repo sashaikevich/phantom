@@ -28,15 +28,31 @@ export const Button = ({
     "tw-rounded-full",
     "tw-border",
     "tw-border-solid",
-    "tw-whitespace-norap",
-    //  hover:border-primary-accent hover:bg-primary-accent focus:outline-none focus:ring-2 focus:ring-orange-400/80 focus:ring-offset-0 disabled:opacity-30 disabled:hover:border-primary disabled:hover:bg-primary disabled:hover:text-white dark:focus:ring-white/80"
+    "tw-whitespace-nowrap",
+    "tw-space-x-2",
+    // "focus:tw-outline",
+    // "focus:tw-outline-style-solid",
+    // "focus:tw-outline-hover",
+    "disabled:opacity-30",
   ]
 
   if (label && icon) {
     if (trailingIcon) {
-      content = [label, icon].join("")
+      content = (
+        <>
+          {label}
+          <span className="tw-w-0.5"></span>
+          {icon}
+        </>
+      )
     } else {
-      content = [icon, label].join("")
+      content = (
+        <>
+          {icon}
+        <span className="tw-w-0.5"></span>
+          {label}
+        </>
+      )
     }
   } else if (icon) {
     content = icon
@@ -65,7 +81,7 @@ export const Button = ({
     }
   } else {
     if (!iconOnly) {
-      sizeClasses.push("tw-text-base tw-px-5 tw-py-2")
+      sizeClasses.push("tw-text-base tw-px-6 tw-py-2 ")
     } else {
       sizeClasses.push(
         "tw-text-sm tw-w-[42px] tw-h-[42px] child:tw-w-4 child:tw-h-4"
@@ -75,23 +91,29 @@ export const Button = ({
 
   if (style === "secondary") {
     if (!iconOnly) {
-      typeClasses.push("tw-text-highlight")
+      typeClasses.push("tw-text-highlight hover:tw-text-hover")
     } else {
-      typeClasses.push("child:tw-fill-highlight child:tw-stroke-highlight")
+      typeClasses.push(
+        "child:tw-fill-highlight child:tw-stroke-highlight child:hover:tw-fill-hover child:hover:tw-stroke-hover"
+      )
     }
-    typeClasses.push("tw-border-highlight")
+    typeClasses.push("tw-border-highlight hover:tw-border-hover")
   } else if (style === "tertiary") {
     if (!iconOnly) {
-      typeClasses.push("tw-text-highlight")
+      typeClasses.push("tw-text-highlight hover:tw-text-hover")
     } else {
-      typeClasses.push("child:tw-fill-highlight child:tw-stroke-highlight")
+      typeClasses.push(
+        "child:tw-fill-highlight child:tw-stroke-highlight child:hover:tw-fill-hover child:hover:tw-stroke-hover"
+      )
     }
     typeClasses.push("tw-border-transparent")
   } else {
     if (!iconOnly) {
-      typeClasses.push("tw-text-primary tw-bg-highlight")
+      typeClasses.push("tw-text-primary tw-bg-highlight hover:tw-bg-hover")
     } else {
-      typeClasses.push("child:tw-fill-primary child:tw-stroke-primary tw-bg-highlight")
+      typeClasses.push(
+        "child:tw-fill-primary child:tw-stroke-primary tw-bg-highlight hover:tw-bg-hover"
+      )
     }
     typeClasses.push("tw-border-highlight")
   }

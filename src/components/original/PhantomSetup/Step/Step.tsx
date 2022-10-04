@@ -1,49 +1,68 @@
 import React from "react"
-import { ImCross } from "react-icons/im"
-import { BsCheck2 } from "react-icons/bs"
+import { NavLink, matchPath, useLocation } from "react-router-dom"
+import { HiOutlineX, HiCheck } from "react-icons/hi"
+import { makeUrlPathFromTitle } from "../../../../utils"
+import { StepStatus } from "../../../../pages/LiPhantomSetupOrig/data"
 
 interface StepProps {
-  text: string
-  onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  variant?: "initial" | "active" | "error" | "success"
+  title: string
+  validateStep: () => StepStatus
 }
-interface StepStyleType {
-  icon: JSX.Element | undefined
-}
+type StepIconType = JSX.Element | undefined
 
-export function Step({ text, variant = "initial", onClick }: StepProps) {
-  let stepStyle = {} as StepStyleType
+export const Step = ({ title, validateStep }: StepProps) => {
+  const status = validateStep()
+  const location = useLocation()
 
-  switch (variant) {
-    case "initial": {
-      // stepStyle = { icon: <div>.</div> }
-      break
-    }
-    case "active": {
-      // stepStyle = { icon: <div>=</div> }
-      break
-    }
-    case "error": {
-      stepStyle = { icon: <ImCross /> }
-      break
-    }
-    case "success": {
-      // stepStyle = { icon: <BsCheck2 /> }
-      break
-    }
+  let stepIcon = {} as StepIconType
+  let stepStatusClasses = ""
+  let isActive = false
+
+  isActive = matchPath(
+    `/step/${makeUrlPathFromTitle(title)}`,
+    location.pathname
+  )
+    ? true
+    : false
+
+  if (isActive) {
+    stepIcon = (
+      <div className='tw-w-2 tw-h-2 tw-bg-white tw-border-2 tw-border-highlight tw-border-solid tw-rounded-full'></div>
+    )
+  } else if (status === "valid") {
+    stepStatusClasses = "tw-text-success"
+    stepIcon = (
+      <span className='tw-bg-white tw-w-6 tw-h-6 tw-rounded-full tw-flex tw-justify-center tw-items-center'>
+        <HiCheck className='tw-fill-current tw-stroke-current tw-opacity-50' />
+      </span>
+    )
+  } else if (status === "invalid") {
+    stepStatusClasses = "tw-text-error"
+    stepIcon = (
+      <span className='tw-bg-white tw-w-6 tw-h-6 tw-rounded-full tw-flex tw-justify-center tw-items-center'>
+        <HiOutlineX className='tw-fill-current tw-stroke-current tw-opacity-50' />
+      </span>
+    )
+  } else {
+    stepIcon = (
+      <div className='tw-w-2 tw-h-2 tw-bg-white tw-border-2 tw-border-white tw-border-solid tw-rounded-full'></div>
+    )
   }
 
   return (
     <>
-      button {variant}
-      <div className='flex items-center'>
-        <div className='w-3 h-3 mr-2 flex justify-center items-center'></div>
-        <a href=''>
-          {/* {stepStyle.icon} */}
-          <span className='font-qanelas select-none text-body-primary font-bold text-body-l text-red'>
-            {text}
-          </span>
-        </a>
+      <div className={"tw-flex tw-items-center tw-space-x-3 last:sibling:tw-hidden" + " " + stepStatusClasses}>
+        <div className='tw-flex tw-justify-center tw-item-center tw-w-7'>
+          {stepIcon}
+        </div>
+        <NavLink to={"step/" + makeUrlPathFromTitle(title)}>
+          <span className={isActive ? "tw-font-bold" : ""}>{title}</span>
+        </NavLink>
+      </div>
+      <div className='tw-my-2'>
+        <div className='tw-flex tw-justify-center tw-item-center tw-w-7'>
+          <div className='tw-w-[1px] tw-h-4 tw-bg-gray-300 tw-block tw-ml-[-1px]'></div>
+        </div>
       </div>
     </>
   )

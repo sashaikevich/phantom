@@ -1,8 +1,7 @@
 import React from "react"
-import { Link } from "react-router-dom"
 
 import { StepType } from "../../../../pages/LiPhantomSetupOrig/data"
-import { makeUrlPath } from "../../../../utils"
+import { Step } from "../Step"
 
 interface AsideProps {
   children?: React.ReactNode
@@ -16,14 +15,11 @@ export const Aside = ({ steps }: AsideProps) => {
 
   return (
     <aside className='tw-w-full md:tw-flex-[0_1_240px] xl:tw-flex-[0_1_400px] lg:tw-mr-6'>
-      {steps.map((step, i) => {
-        return (
-          <div key={i}>
-            <Link to={"step/" + makeUrlPath(step.title)}>{step.title}</Link>
-            {i < steps.length - 1 && <hr />}
-          </div>
-        )
-      })}
+      <div className='tw-mb-7'>
+        {steps.map((step, i) => {
+          return <Step key={i} title={step.title} validateStep={step.validateStep} />
+        })}
+      </div>
       <div>
         <p>Setup demo video</p>
         <div>

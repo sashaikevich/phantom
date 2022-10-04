@@ -1,6 +1,6 @@
 import React from "react"
 import { InfoBox } from "../../../components/original/InfoBox"
-
+import { StepStatus } from "../data"
 export const StepConnect = () => {
   return (
     <>
@@ -14,7 +14,7 @@ export const StepConnect = () => {
           created for that "session". If you log out or are disconnected, the
           cookie expires.
         </p>
-      </InfoBox> 
+      </InfoBox>
       <div className='form-wrapper'>
         <form>
           <input
@@ -38,4 +38,8 @@ export const StepConnect = () => {
       </p>
     </>
   )
+}
+
+export function validateStepConnect():StepStatus {
+  return "valid"
 }

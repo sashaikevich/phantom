@@ -1,9 +1,10 @@
 import React from "react"
+import { StepStatus } from "../data"
 
 export const StepMessage = () => {
-  return (
-    <>
-      
-    </>
-  )
+  return <></>
+}
+
+export function validateStepMessage():StepStatus {
+  return "valid"
 }

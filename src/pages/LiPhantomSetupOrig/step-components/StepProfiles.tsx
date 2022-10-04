@@ -1,6 +1,7 @@
 import React from "react"
 import { InfoBox } from "../../../components/original/InfoBox"
 import { ExpandableSection } from "../../../components/original/ExpandableSection"
+import { StepStatus } from "../data"
 
 export const StepProfiles = () => {
   return (
@@ -33,7 +34,7 @@ export const StepProfiles = () => {
           <p className='tw-mt-2 tw-invisible tw-peer-invalid:visible tw-text-sm '>
             Please provide a valid email address.
           </p>
-          <ul className="tw-text-emerald-200">
+          <ul className='tw-text-emerald-200'>
             <li>
               Give your inputs in one of the following formats:
               <ul>
@@ -73,4 +74,8 @@ export const StepProfiles = () => {
       </p>
     </>
   )
+}
+
+export function validateStepProfiles(): StepStatus {
+  return "invalid"
 }

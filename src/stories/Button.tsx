@@ -32,7 +32,7 @@ export const Button = ({
   size = 'medium',
   backgroundColor,
   label,
-  ...props
+...props
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
