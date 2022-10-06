@@ -56,7 +56,7 @@ export const Step = ({ title, validateStep }: StepProps) => {
           {stepIcon}
         </div>
         <NavLink to={"step/" + makeUrlPathFromTitle(title)}>
-          <span className={isActive ? "tw-font-bold" : ""}>{title}</span>
+          <span className={isActive ? "tw-font-bold" : "tw-font-medium"}>{title}</span>
         </NavLink>
       </div>
       <div className='tw-my-2'>

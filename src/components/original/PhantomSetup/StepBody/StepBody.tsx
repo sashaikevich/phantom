@@ -1,11 +1,11 @@
 import React from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { Button } from "../../Button"
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi"
 
 interface StepBodyProps {
   title: string
-  content: JSX.Element
+  content: React.ReactNode
   prevStepPath?: string | false
   nextStepPath?: string | false
 }
@@ -18,12 +18,12 @@ export const StepBody = ({
   const navigate = useNavigate()
   return (
     <>
-      <h2 className='tw-text-heading-primary tw-mb-6 tw-font-bold tw-text-heading-m'>
+      <h2 className='tw-text-heading-primary tw-mb-4 tw-font-bold tw-text-heading-m'>
         {title}
       </h2>
       {content}
-      <hr />
-      <div className='tw-flex tw-justify-end tw-space-x-2'>
+
+      <div className='tw-flex tw-justify-end tw-space-x-2 tw-mt-4'>
         {prevStepPath && (
           <Button
             style='secondary'

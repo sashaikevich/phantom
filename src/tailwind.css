@@ -46,14 +46,15 @@
   input[type="time"],
   input[type="search"],
   input[type="tel"],
-  input[type="checkbox"],
+  /* input[type="checkbox"], */
   input[type="radio"],
   select,
   select[multiple],
   textarea {
-    @apply tw-rounded tw-border-info-light;
+    @apply tw-rounded-xl tw-border-brdr;
   }
 
+  /* todo move card class to shadow config */
   .tw-shadow-card {
     --tw-shadow: 0 8px 20px 0 #73706e14;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
@@ -75,5 +76,8 @@
   }
   .tw-font-qanelas {
     font-family: Qanelas;
+  }
+  .tw-card-shadow {
+    box-shadow: 0 8px 20px 0 #73706e14;
   }
 }

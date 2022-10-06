@@ -13,7 +13,7 @@ interface SettingsProps {
 
 export const Settings = ({ steps }: SettingsProps) => {
   return (
-    <div className='tw-flex tw-flex-col lg:tw-flex-row tw-mt-8 md:tw-mt-16 tw-space-y-4 lg:tw-space-y-0 lg:tw-space-x-2'>
+    <div className='tw-flex tw-flex-col lg:tw-flex-row tw-mt-8 md:tw-mt-16 tw-space-y-8 lg:tw-space-y-0 lg:tw-space-x-4'>
       <Aside steps={steps} />
       <main className='tw-w-full tw-mt-4 md:tw-mt-0 md:tw-flex-[1_1_auto] tw-bg-white tw-rounded-xl tw-p-6 tw-shadow-card'>
         <Routes>

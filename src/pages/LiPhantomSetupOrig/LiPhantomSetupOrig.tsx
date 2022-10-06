@@ -9,7 +9,7 @@ import { LiPhantomOrig } from "./data"
 export const LiPhantomSetupOrig = () => {
   return (
     <div className='tw-bg-primary tw-min-h-screen tw-flex tw-justify-center'>
-      <div className='tw-container tw-mt-8 md:tw-mt-16 tw-mb-26'>
+      <div className='tw-container tw-mt-8 md:tw-mt-16 tw-mb-28'>
         <PhantomSetup phantom={LiPhantomOrig} />
 
         <Support
