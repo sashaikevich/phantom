@@ -30,10 +30,11 @@ export const InputField = ({
   placeholder,
   required,
   errorMsg,
+  className: passedStyles,
   ...props
 }: TypeInputT | SelectInputT | NumberInputT | TextareaInputT) => {
   const coreStyle =
-    "tw-form-input tw-w-full tw-py-3 hover:tw-border-highlight hover:tw-ring hover:tw-ring-highlight/20 focus:tw-border-highlight focus:tw-ring-highlight/20 tw-border-brdr tw-rounded-xl"
+    "tw-rounded-xl tw-border-brdr tw-form-input tw-w-full tw-py-3 hover:tw-border-highlight hover:tw-ring hover:tw-ring-highlight/20 focus:tw-border-highlight focus:tw-ring-highlight/20 tw-border-brdr tw-rounded-xl"
 
   let inputEl: JSX.Element
 
@@ -41,7 +42,7 @@ export const InputField = ({
     inputEl = (
       <input
         required={required}
-        type='text'
+        type="text"
         placeholder={placeholder}
         className={coreStyle}
       />
@@ -61,7 +62,7 @@ export const InputField = ({
   } else if (type === "number") {
     inputEl = (
       <input
-        type='number'
+        type="number"
         required={required}
         className={coreStyle}
         placeholder={placeholder}
@@ -81,13 +82,13 @@ export const InputField = ({
   }
 
   return (
-    <div className={`sibling:tw-mt-8 ${props.className || ""}`}>
-      <span className='tw-flex tw-justify-between tw-items-baseline'>
-        <label className='tw-tex-body-primary tw-text-body-l tw-font-bold tw-mb-2 tw-inline-block'>
+    <div className={`sibling:tw-mt-8 ${passedStyles || ""}`}>
+      <span className="tw-flex tw-justify-between tw-items-baseline">
+        <label className="tw-tex-body-primary tw-text-body-l tw-font-bold tw-mb-2 tw-inline-block">
           {label}
         </label>
         {!required && (
-          <span className='tw-text-body-tertiary tw-font-medium tw-text-body-s'>
+          <span className="tw-text-body-tertiary tw-font-medium tw-text-body-s">
             Optional
           </span>
         )}
@@ -95,10 +96,10 @@ export const InputField = ({
 
       {inputEl}
 
-      {errorMsg && <p className='tw-text-body-s tw-mt-2'>{errorMsg}</p>}
-      <div className='tw-text-body-s tw-font-medium tw-text-body-secondary'>
+      {errorMsg && <p className="tw-text-body-s tw-mt-2">{errorMsg}</p>}
+      <div className="tw-text-body-s tw-font-medium tw-text-body-secondary">
         {notice?.map((note, i) => (
-          <span className='tw-w-full tw-inline-block tw-my-1' key={i}>
+          <span className="tw-w-full tw-inline-block tw-my-1" key={i}>
             {note}
           </span>
         ))}

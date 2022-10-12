@@ -49,7 +49,7 @@ export const Button = ({
       content = (
         <>
           {icon}
-        <span className="tw-w-0.5"></span>
+          <span className="tw-w-0.5"></span>
           {label}
         </>
       )
@@ -121,7 +121,7 @@ export const Button = ({
   classes = classes.concat(typeClasses, sizeClasses)
 
   return (
-    <button {...props} className={classes.join(" ")}>
+    <button {...props} className={classes.join(" ")} type="button">
       {content}
     </button>
   )

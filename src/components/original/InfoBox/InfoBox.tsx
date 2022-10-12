@@ -2,12 +2,12 @@ import { IoInformationCircleOutline } from "react-icons/io5"
 import React from "react"
 export const InfoBox = ({
   children,
-  className: style,
+  className: passedStyles,
 }: React.PropsWithChildren & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={`tw-rounded-xl tw-p-4 tw-flex tw-justify-between tw-text-info tw-bg-info-light ${
-        style || ""
+        passedStyles || ""
       }`}
     >
       <IoInformationCircleOutline className='tw-w-5 tw-h-5 tw-flex-none tw-mr-3 tw-mt-0.5' />
