@@ -99,7 +99,7 @@
 
   /*  range  */
   .custom-range input[type="range"] {
-    @apply tw-appearance-none tw-w-full tw-rounded-full;
+    @apply tw-appearance-none tw-w-full tw-rounded-full tw-cursor-pointer;
   }
   .custom-range input[type="range"]:focus {
     outline: none;

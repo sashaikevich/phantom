@@ -15,9 +15,9 @@ export const InputRadioOption = ({
   const isString = typeof children === "string"
   const size = " tw-w-[14px] tw-h-[14px]" // duplicating it to have pointer events and focus work while using real and faux radiobutton
   return (
-    <div>
-      <div className="tw-inline-flex tw-items-center">
-        <div className="tw-relative tw-inline-flex tw-items-center">
+    <div className="tw-mb-2 last-of-type:tw-mb-0">
+      <div className="tw-inline-flex tw-items-start ">
+        <div className="tw-relative tw-inline-flex tw-items-center tw-mt-[5px]">
           <input
             className={`${size} tw-peer tw-relative  hover:tw-border-redi-primary tw-cursor-pointer tw-appearance-none tw--z-1 `}
             type="radio"
@@ -35,7 +35,7 @@ export const InputRadioOption = ({
             {children}
           </Label>
         ) : (
-          <label htmlFor={id} className="tw-ml-4 last-of-type:tw-mb-0">
+          <label htmlFor={id} className="tw-ml-4">
             {children}
           </label>
         )}

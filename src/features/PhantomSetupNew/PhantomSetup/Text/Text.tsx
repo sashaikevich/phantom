@@ -4,7 +4,7 @@ import { classNames } from "../../../../utils"
 type Element = "h1" | "h2" | "h3" | "p" | "span"
 
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
-  variant?: "help" | "label-lg" | "label-md" | "label-sm" | "section-title"
+  variant?: "section-title" | "label-lg" | "label-md" | "label-sm" | "help"
   children: React.ReactNode
   el?: Element
 }
@@ -13,6 +13,7 @@ export const Text = ({
   variant,
   children,
   el,
+  // todo do it this way for other overrides for consistency
   className: overrides = "",
 }: TextProps) => {
   let classes = "" as string

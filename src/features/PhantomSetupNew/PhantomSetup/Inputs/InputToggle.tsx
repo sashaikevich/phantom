@@ -18,8 +18,8 @@ export const InputToggle = ({
   const size = " tw-w-[34px] tw-h-[18px]" // duplicating it to have pointer events and focus work while using real and faux checkbox
   return (
     <>
-      <div className={`tw-inline-flex tw-items-center  ${passedStyles || ""}`}>
-        <div className={`tw-relative tw-inline-flex tw-items-center`}>
+      <div className={`tw-inline-flex tw-items-start ${passedStyles || ""}`}>
+        <div className={`tw-relative tw-inline-flex tw-items-center tw-mt-[3px]`}>
           {/* display the input, but z-index it behind, and style its shape the same way as
            the faux input to hide the native checkmark, but keep the tab focus */}
           <input

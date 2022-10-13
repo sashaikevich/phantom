@@ -13,7 +13,7 @@ export const InputRadioGroup = ({
     <div className={` ${passedStyles || ""}`}>
       {options.map((option, index) => {
         return (
-          <InputRadioOption key={index} forName={forName} id={forName+index}>
+          <InputRadioOption key={index} forName={forName} id={forName + index}>
             {option}
           </InputRadioOption>
         )

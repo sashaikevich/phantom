@@ -1,9 +1,12 @@
 import React, { LabelHTMLAttributes } from "react"
 import { Text } from ".."
+
+export type LabelSizeType = "lg" | "md" | "sm"
+
 interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   children: React.ReactNode
   optional?: true
-  labelSize?: "lg" | "md" | "sm"
+  labelSize?: LabelSizeType
 }
 
 export const Label = ({
@@ -15,7 +18,11 @@ export const Label = ({
   ...props
 }: LabelProps) => {
   return (
-    <label className={`tw-inline-block ${passedStyles || ""}`} htmlFor={htmlFor} {...(props && props)}>
+    <label
+      className={`tw-inline-block ${passedStyles || ""}`}
+      htmlFor={htmlFor}
+      {...(props && props)}
+    >
       <Text variant={`label-${labelSize}`}>
         {children}
         {optional === true ? (

@@ -7,12 +7,15 @@ import {
   SectionTitle,
   Label,
   InputText,
+  InputTextInline,
+  InputFieldText,
   InputToggle,
   InputRange,
   InputRadioGroup,
   HelpLink,
   Text,
 } from "."
+import { HorizontalOptions } from "./Layout"
 
 export const PhantomSetup = () => {
   return (
@@ -67,13 +70,13 @@ export const PhantomSetup = () => {
         </div>
       </div>
 
-      <SectionTitle title="Search Settings" />
+      <SectionTitle>Search Settings</SectionTitle>
 
       <InputText
         label="Your search"
         helpLink={{ text: "Learn how to run multiple searches" }}
-        className="tw-mb-6"
         placeholder="https://www.linkedin.com/search/results/people/?keywords=..."
+        className="tw-mb-6"
       />
 
       <div className="tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-2 tw-py-1 tw-inline-flex tw-items-center tw-mb-6 tw-rounded-lg">
@@ -119,7 +122,7 @@ export const PhantomSetup = () => {
       </div>
       <HelpLink className="tw-mb-14" text="Where do I find it?" />
 
-      <SectionTitle title="Automation Settings" />
+      <SectionTitle>Automation Settings</SectionTitle>
 
       <CalloutBox type="notice" className="tw-mb-8 ">
         <span className="tw-uppercase tw-font-bold">Note: </span>
@@ -130,7 +133,7 @@ export const PhantomSetup = () => {
       </CalloutBox>
 
       <Label className="tw-mb-3">Outreach account</Label>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">Use Sales Navigator:</Label>
         </div>
@@ -138,7 +141,7 @@ export const PhantomSetup = () => {
         <div className="">
           <InputToggle label="Use my second Sales Navigator Team account" />
         </div>
-      </div>
+      </HorizontalOptions>
 
       <hr className="tw-border-redi-light-bg tw-my-16" />
 
@@ -156,21 +159,28 @@ export const PhantomSetup = () => {
           options={["During working hours", "Randomly throughout the week"]}
         />
       </div>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">Send frequency:</Label>
         </div>
-        <div className="">
-          <InputRange
-            min={0}
-            max={100}
-            labelLow="1"
-            size="sm"
-            labelHigh="MAXIMUM"
-            showLabels={true}
-          />
-        </div>
-      </div>
+        <InputRange
+          min={1}
+          max={100}
+          labelLow="1"
+          width="sm"
+          labelHigh="MAXIMUM"
+          showLabels={true}
+          tooltipOverride={val => {
+            if (val === null || val === undefined) return
+            // const daily = val / 7
+            return (
+              <div className="tw-text-redi-primary-dark tw-whitespace-nowrap">
+                {val}/day
+              </div>
+            )
+          }}
+        />
+      </HorizontalOptions>
 
       <hr className="tw-border-redi-light-bg tw-my-16" />
 
@@ -179,30 +189,30 @@ export const PhantomSetup = () => {
         You can limit the number of profiles to extract to the first N results
         for each search type:
       </Text>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">Regular search:</Label>
         </div>
-        <div className="">
-          <InputRange min={1} max={1000} size="md" showLabels={true} />
-        </div>
-      </div>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+          <InputRange min={1} max={1000} width="md" showLabels={true} />
+      </HorizontalOptions>
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">Sales Navigator search:</Label>
         </div>
-        <div className="">
-          <InputRange min={1} max={2500} size="md" showLabels={true} />
-        </div>
-      </div>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+        <InputRange
+          min={1}
+          max={2500}
+          initialVal={1}
+          width="md"
+          showLabels={true}
+        />
+      </HorizontalOptions>
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">LinkedIn Group search:</Label>
         </div>
-        <div className="">
-          <InputRange min={1} max={2500} size="md" showLabels={true} />
-        </div>
-      </div>
+          <InputRange min={1} max={2500} width="md" showLabels={true} />
+      </HorizontalOptions>
 
       <hr className="tw-border-redi-light-bg tw-my-16" />
 
@@ -211,44 +221,92 @@ export const PhantomSetup = () => {
         Leave the recommended settings unless you know exactly what you're
         doing.
       </Text>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">Maximum execution time:</Label>
         </div>
-        <div className="">
-          <InputRange warning={true} min={0} max={60} size="sm" showLabels={true} />
-        </div>
-      </div>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+          <InputRange
+            warning={true}
+            min={0}
+            max={60}
+            width="sm"
+            showLabels={true}
+          />
+      </HorizontalOptions>
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">Maximum parallel executions:</Label>
         </div>
         <div className="">
-          <InputRange warning={true} min={0} max={10} size="sm" showLabels={true} />
+          <InputRange
+            warning={true}
+            min={0}
+            max={10}
+            width="sm"
+            showLabels={true}
+          />
         </div>
-      </div>
-      <div className="tw-grid tw-gap-8 tw-grid-cols-options">
+      </HorizontalOptions>
+      <HorizontalOptions>
         <div className="tw-text-right">
           <Label labelSize="md">Maximum retries:</Label>
         </div>
-        <div className="">
-          <InputRange warning={true} min={0} max={10} size="sm" showLabels={true} />
-        </div>
-      </div>
+          <InputRange
+            warning={true}
+            min={0}
+            max={10}
+            width="sm"
+            showLabels={true}
+          />
+      </HorizontalOptions>
       <hr className="tw-border-redi-light-bg tw-my-16" />
 
       <Label>Data management</Label>
       <InputRadioGroup
         forName="data_management"
+        className="tw-ml-10"
         options={[
           "Mix old and new files (add new data to already-existing dataset)",
-          "Delete all previous files at each launch, and restart processing information from the beginning.",
-          "Create new files at each launch, and restart processing information from the beginning, and keep the last _____ folders",
+          "Delete all previous files at each launch, and restart processing information from the beginning",
+          <>
+            <Text variant="label-sm">
+              Create new files at each launch, and restart processing
+              information from the beginning, and keep the last{" "}
+              <InputFieldText
+                inline
+                smaller
+                width="sm"
+                className="tw-text-center"
+              />{" "}
+              folders
+            </Text>
+          </>,
         ]}
       />
 
-      <SectionTitle title="Proxy Settings" />
-      <SectionTitle title="Notification Settings" />
+      <SectionTitle>Proxy Settings</SectionTitle>
+      <Label>Preferred Proxy</Label>
+      <HorizontalOptions>
+        <div>
+          <InputRadioGroup
+            forName="preferred_proxy"
+            className="tw-ml-10"
+            options={["None", "Random Proxy", "PhantomBuster", "HTTP"]}
+          />
+        </div>
+
+        <div className="tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-2 tw-py-1 tw-mb-6 tw-rounded-lg">
+          <InputTextInline
+            label="Address:"
+            className="tw-mb-2"
+            placeholder="proxy.company.com:8080"
+          />
+          <InputTextInline label="Username:" className="tw-mb-2" />
+          <InputTextInline label="Password:" className="tw-mb-2" />
+        </div>
+      </HorizontalOptions>
+
+      <SectionTitle>Notification Settings</SectionTitle>
     </main>
   )
 }
