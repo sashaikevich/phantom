@@ -8,14 +8,16 @@ export interface InputFieldTextProps
   inline?: true
   width?: "sm" | "md" | "lg" | "full"
   smaller?: true
+  id?: string
 }
 export const InputFieldText = ({
   placeholder,
   onChange,
   required,
+  id,
   inline,
   smaller,
-  width="full",
+  width = "full",
   className: passedStyles,
   ...props
 }: InputFieldTextProps) => {
@@ -29,12 +31,13 @@ export const InputFieldText = ({
   return (
     <input
       className={classNames(
-        "tw-border tw-border-redi-borders",
+        "tw-border tw-border-redi-borders tw-text-redi-dark/80 tw-placeholder-redi-placeholder",
         inline ? "tw-inline" : "tw-block",
         inputWidth[width],
         smaller ? "tw-py-1 tw-px-1.5 tw-rounded-md" : "tw-w-full tw-rounded-lg",
         passedStyles || ""
       )}
+      id={id}
       type="text"
       onChange={onChange}
       {...props}

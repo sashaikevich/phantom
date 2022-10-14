@@ -1,6 +1,7 @@
 import React from "react"
 import { Label, LabelSizeType, InputFieldText, InputFieldTextArea } from "."
 import { HelpLink, HelpLinkProps } from "../"
+import { uid } from "../../../../utils"
 
 interface InputTextProps
   extends React.HTMLAttributes<HTMLTextAreaElement | HTMLInputElement> {
@@ -30,10 +31,15 @@ export const InputText = ({
   className: passedStyles,
   ...props
 }: RequiredInputTextProps | OptionalInputTextProps) => {
+  const forId = uid()
   return (
     <div className={passedStyles || ""}>
       {label && (
-        <Label className="tw-mb-1.5" {...(optional && { optional: true })}>
+        <Label
+          className="tw-mb-1.5"
+          {...(optional && { optional: true })}
+          htmlFor={forId}
+        >
           {label}
         </Label>
       )}
@@ -42,6 +48,7 @@ export const InputText = ({
           {...(required && { required: true })}
           onChange={onChange}
           placeholder={placeholder}
+          id={forId}
         />
       ) : (
         <InputFieldText
@@ -49,6 +56,7 @@ export const InputText = ({
           onChange={onChange}
           placeholder={placeholder}
           {...props}
+          id={forId}
         />
       )}
       {helpLink && <HelpLink className="tw-mt-1" {...helpLink} />}

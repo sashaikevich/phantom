@@ -2,16 +2,16 @@ import React from "react"
 import { TiWarningOutline, TiWarning } from "react-icons/ti"
 import { classNames } from "../../../utils"
 
-interface CalloutBoxProps extends React.HTMLAttributes<HTMLDivElement> {
+interface InfoBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   type?: "notice" | "warning"
 }
 
-export const CalloutBox = ({
+export const InfoBox = ({
   children,
   type = "notice",
   className: passedStyles,
-}: CalloutBoxProps) => {
+}: InfoBoxProps) => {
   const sharedClasses = "tw-rounded-lg tw-px-3 tw-py-3 tw-flex tw-items-start tw-text-redi-ss"
 
   const noticeClasses = "tw-bg-redi-light-bg "

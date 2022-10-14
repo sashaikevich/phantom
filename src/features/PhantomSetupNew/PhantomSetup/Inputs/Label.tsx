@@ -11,6 +11,7 @@ interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
 
 export const Label = ({
   optional,
+  id,
   labelSize = "lg",
   className: passedStyles,
   children,

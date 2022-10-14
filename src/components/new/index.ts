@@ -1,2 +1,2 @@
 export * from "./Sidebar"
-export * from "./CalloutBox"
+export * from "./InfoBox"
