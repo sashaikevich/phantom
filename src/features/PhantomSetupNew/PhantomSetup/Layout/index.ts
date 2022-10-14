@@ -1,1 +1,1 @@
-export * from "./HorizontalOptions"
+export * from "./TwoColumns"

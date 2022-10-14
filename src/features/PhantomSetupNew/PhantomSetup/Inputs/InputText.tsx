@@ -28,12 +28,12 @@ export const InputText = ({
   optional,
   multiline,
   onChange,
-  className: passedStyles,
+  className: passedStyles = "",
   ...props
 }: RequiredInputTextProps | OptionalInputTextProps) => {
   const forId = uid()
   return (
-    <div className={passedStyles || ""}>
+    <div className={`tw-mb-9 ${passedStyles}`}>
       {label && (
         <Label
           className="tw-mb-1.5"

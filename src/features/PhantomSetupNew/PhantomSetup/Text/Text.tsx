@@ -1,7 +1,7 @@
 import React from "react"
 import { classNames } from "../../../../utils"
 
-type Element = "h1" | "h2" | "h3" | "p" | "span"
+type Element = "h1" | "h2" | "h3" | "h4" | "p" | "span"
 
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
   variant?: "section-title" | "label-lg" | "label-md" | "label-sm" | "help"
@@ -20,11 +20,11 @@ export const Text = ({
 
   switch (variant) {
     case "label-lg": {
-      classes = "tw-text-redi-dark tw-text-redi-mm tw-font-semibold"
+      classes = "tw-text-redi-dark/80 tw-text-redi-mm tw-font-semibold"
       break
     }
     case "label-md": {
-      classes = "tw-text-redi-dark tw-text-redi-sm tw-font-semibold"
+      classes = "tw-text-redi-dark tw-text-redi-sm tw-font-medium"
       break
     }
     case "label-sm": {

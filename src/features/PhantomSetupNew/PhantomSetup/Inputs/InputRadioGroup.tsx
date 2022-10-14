@@ -2,22 +2,25 @@ import React from "react"
 import { InputRadioOption } from "."
 interface InputRadioGroupProps extends React.AllHTMLAttributes<HTMLDivElement> {
   forName: string
-  options: React.ReactNode[]
+  children: React.ReactElement | React.ReactElement[]
 }
 export const InputRadioGroup = ({
   forName,
-  options,
   className: passedStyles,
+  children,
 }: InputRadioGroupProps) => {
   return (
     <div className={` ${passedStyles || ""}`}>
-      {options.map((option, index) => {
+      {React.Children.map(children, (child, index) => {
         return (
-          <InputRadioOption key={index} forName={forName} id={forName + index}>
-            {option}
-          </InputRadioOption>
+          <>
+            {React.cloneElement(child, {
+              forName: forName,
+              id: forName + index,
+            })}
+          </>
         )
-      })}{" "}
+      })}
     </div>
   )
 }

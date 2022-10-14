@@ -1,39 +1,38 @@
 import React from "react"
-import { InfoBox } from "../../../components/new"
+import { InfoBox, Button } from "../../../components/new"
 import {
-  SectionTitle,
-  Label,
+  CalloutBox,
+  HelpLink,
+  InputFieldText,
+  InputRadioGroup,
+  InputRadioOption,
+  InputRange,
   InputText,
   InputTextInline,
-  InputFieldText,
   InputToggle,
-  InputRange,
-  InputRadioGroup,
-  HelpLink,
+  Label,
+  NotificationGrid,
+  SectionHeading,
+  SubSection,
   Text,
   PhantomHeader,
   ViewToggle,
-  CalloutBox,
 } from "."
-import { HorizontalOptions } from "./Layout"
+import { TwoColumns } from "./Layout"
 
 export const PhantomSetup = () => {
   return (
     <main className="tw-py-8 tw-px-28 tw-max-w-5xl">
       <PhantomHeader />
       <ViewToggle />
-
-      <SectionTitle>Search Settings</SectionTitle>
-
+      <SectionHeading className="tw-mt-0">Search Settings</SectionHeading>
       <InputText
         label="Your search"
         helpLink={{ text: "Learn how to run multiple searches" }}
         placeholder="https://www.linkedin.com/search/results/people/?keywords=..."
-        className="tw-mb-6"
       />
-
-      <CalloutBox>
-        <div className="tw-flex tw-items-center">
+      <CalloutBox className="tw-py-1 tw--mt-3 tw-mb-9">
+        <div className="tw-flex tw-items-center ">
           <Text>
             Spreadsheet detected; Please confirm the
             <span className="tw-font-bold tw-not-italic tw-ml-1 ">
@@ -51,20 +50,17 @@ export const PhantomSetup = () => {
           </select>
         </div>
       </CalloutBox>
-
       <InputText
         label="Personalized message"
         helpLink={{ text: "See how to customize it" }}
-        className="tw-mb-6"
         optional={true}
         multiline={true}
         placeholder={`Hey #firstName#, let's connect! \nBest regards`}
       />
-
       <div className="tw-flex tw-w-full tw-items-end">
         <InputText
           required={true}
-          className="tw-w-full"
+          className="tw-w-full tw-mb-0"
           label="Connect to your LinkedIn with a cookie"
         />
         <span className="tw-mx-4 tw-mb-2 tw-text-redi-placeholder">or</span>
@@ -75,44 +71,30 @@ export const PhantomSetup = () => {
           Auto-connect with our browser extension
         </a>
       </div>
+      <HelpLink text="Where do I find it?" className="tw-mt-1" />
 
-      <HelpLink className="tw-mb-14" text="Where do I find it?" />
+      <SectionHeading>Automation Settings</SectionHeading>
 
-      <SectionTitle>Automation Settings</SectionTitle>
-
-      <InfoBox type="notice" className="tw-mb-8 ">
-        <span className="tw-uppercase tw-font-bold">Note: </span>
-        <span className="tw-italic tw-font-semibold">
-          You must stay logged into LinkedIn for this flow to run. (You may
-          close your browser, but not log out.)
-        </span>
-      </InfoBox>
-
-      <Label className="tw-mb-3">Outreach account</Label>
-      <HorizontalOptions>
+      <SubSection heading="Outreach account">
         <Text variant="label-md" className="tw-text-right">
           Use Sales Navigator:
         </Text>
         <InputToggle label="Use my second Sales Navigator Team account" />
-      </HorizontalOptions>
-
-      <hr className="tw-border-redi-light-bg tw-my-16" />
-
-      <Label className="tw-mb-3">Outreach limits</Label>
-      <Text el="p" className="tw-mb-4">
-        Your automated flow should mimic your typical behavior to avoid hitting
-        LinkedIn's abuse limits.
-      </Text>
-      <HorizontalOptions>
+      </SubSection>
+      <SubSection
+        columnView={true}
+        heading="Outreach limits"
+        description="Your automated flow should mimic your typical behavior to avoid hitting
+        LinkedIn's abuse limits."
+      >
         <Text variant="label-md" className="tw-text-right">
           Send invites
         </Text>
-        <InputRadioGroup
-          forName="send_invites"
-          options={["During working hours", "Randomly throughout the week"]}
-        />
-      </HorizontalOptions>
-      <HorizontalOptions>
+        <InputRadioGroup forName="send_invites">
+          <InputRadioOption>During working hours</InputRadioOption>
+          <InputRadioOption>Randomly throughout the week</InputRadioOption>
+        </InputRadioGroup>
+
         <Text variant="label-md" className="tw-text-right">
           Send frequency:
         </Text>
@@ -133,22 +115,16 @@ export const PhantomSetup = () => {
             )
           }}
         />
-      </HorizontalOptions>
-
-      <hr className="tw-border-redi-light-bg tw-my-16" />
-
-      <Label>Extraction limits</Label>
-      <Text el="p" className="tw-mb-4">
-        You can limit the number of profiles to extract to the first N results
-        for each search type:
-      </Text>
-      <HorizontalOptions>
+      </SubSection>
+      <SubSection
+        heading="Extraction limits"
+        description=" You can limit the number of profiles to extract to the first
+      N results for each search type:"
+      >
         <Text variant="label-md" className="tw-text-right">
           Regular search:
         </Text>
         <InputRange min={1} max={1000} width="md" showLabels={true} />
-      </HorizontalOptions>
-      <HorizontalOptions>
         <Text variant="label-md" className="tw-text-right">
           Sales Navigator search:
         </Text>
@@ -159,22 +135,17 @@ export const PhantomSetup = () => {
           width="md"
           showLabels={true}
         />
-      </HorizontalOptions>
-      <HorizontalOptions>
         <Text variant="label-md" className="tw-text-right">
           LinkedIn Group search:
         </Text>
         <InputRange min={1} max={2500} width="md" showLabels={true} />
-      </HorizontalOptions>
+      </SubSection>
 
-      <hr className="tw-border-redi-light-bg tw-my-16" />
-
-      <Label>Critical execution limits</Label>
-      <Text el="p" className="tw-mb-4">
-        Leave the recommended settings unless you know exactly what you're
-        doing.
-      </Text>
-      <HorizontalOptions>
+      <SubSection
+        heading="Critical execution limits"
+        description="Leave the recommended settings unless you know exactly what you're
+        doing."
+      >
         <Text variant="label-md" className="tw-text-right">
           Maximum execution time:
         </Text>
@@ -185,8 +156,6 @@ export const PhantomSetup = () => {
           width="sm"
           showLabels={true}
         />
-      </HorizontalOptions>
-      <HorizontalOptions>
         <Text variant="label-md" className="tw-text-right">
           Maximum parallel executions:
         </Text>
@@ -197,8 +166,6 @@ export const PhantomSetup = () => {
           width="sm"
           showLabels={true}
         />
-      </HorizontalOptions>
-      <HorizontalOptions>
         <Text variant="label-md" className="tw-text-right">
           Maximum retries:
         </Text>
@@ -209,17 +176,18 @@ export const PhantomSetup = () => {
           width="sm"
           showLabels={true}
         />
-      </HorizontalOptions>
-      <hr className="tw-border-redi-light-bg tw-my-16" />
+      </SubSection>
 
-      <Label>Data management</Label>
-      <InputRadioGroup
-        forName="data_management"
-        className="tw-ml-10"
-        options={[
-          "Mix old and new files (add new data to already-existing dataset)",
-          "Delete all previous files at each launch, and restart processing information from the beginning",
-          <>
+      <SubSection heading="Data management" columnView={false}>
+        <InputRadioGroup forName="data_management" className="tw-ml-10">
+          <InputRadioOption>
+            Mix old and new files (add new data to already-existing dataset)
+          </InputRadioOption>
+          <InputRadioOption warning>
+            Delete all previous files at each launch, and restart processing
+            information from the beginning
+          </InputRadioOption>
+          <InputRadioOption warning>
             <Text variant="label-sm">
               Create new files at each launch, and restart processing
               information from the beginning, and keep the last
@@ -231,51 +199,54 @@ export const PhantomSetup = () => {
               />
               folders
             </Text>
-          </>,
-        ]}
-      />
+          </InputRadioOption>
+        </InputRadioGroup>
+      </SubSection>
+      <InfoBox type="notice">
+        You must stay logged into LinkedIn for this flow to run. (You may close
+        your browser, but not log out.)
+      </InfoBox>
 
-      <SectionTitle>Proxy Settings</SectionTitle>
-      <Label>Preferred Proxy</Label>
-      <HorizontalOptions>
-        <InputRadioGroup
-          forName="preferred_proxy"
-          className="tw-ml-10"
-          options={["None", "Random Proxy", "PhantomBuster", "HTTP"]}
-        />
-
+      <SectionHeading>Proxy Settings</SectionHeading>
+      <TwoColumns>
+        <SubSection heading="Preferred Proxy" columnView={false}>
+          <InputRadioGroup forName="preferred_proxy" className="tw-ml-10">
+            <InputRadioOption>None</InputRadioOption>
+            <InputRadioOption>Random Proxy</InputRadioOption>
+            <InputRadioOption>PhantomBuster</InputRadioOption>
+            <InputRadioOption>HTTP</InputRadioOption>
+          </InputRadioGroup>
+        </SubSection>
         <div>
-          <div className="tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-2 tw-py-1 tw-mb-6 tw-rounded-lg">
+          <CalloutBox showFlag={false} className="tw-w-full">
             <InputTextInline
               label="Address:"
-              className="tw-mb-2"
               placeholder="proxy.company.com:8080"
             />
-            <InputTextInline label="Username:" className="tw-mb-2" />
-            <InputTextInline label="Password:" className="tw-mb-2" />
-          </div>
+            <InputTextInline label="Username:" />
+            <InputTextInline label="Password:" />
+          </CalloutBox>
 
-          <div className="tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-2 tw-py-1 tw-mb-6 tw-rounded-lg">
+          <CalloutBox showFlag={false} className="tw-w-full">
             <Label labelSize="md">Address:</Label>
-            <InputRadioGroup
-              forName="pb_proxy"
-              className="tw-ml-10"
-              options={[
-                "Maintain the same fixed IP as long as possible",
-                <>
-                  <Text variant="label-sm">
-                    Obtain the IP address every
-                    <InputFieldText
-                      inline
-                      smaller
-                      width="sm"
-                      className="tw-text-center tw-mx-2"
-                    />
-                    hours
-                  </Text>
-                </>,
-              ]}
-            />
+            <InputRadioGroup forName="pb_proxy" className="tw-ml-10 tw-mb-2">
+              <InputRadioOption>
+                Maintain the same fixed IP as long as possible
+              </InputRadioOption>
+              <InputRadioOption inputClasses="tw-translate-y-[5px]">
+                <Text variant="label-sm">
+                  Obtain the IP address every
+                  <InputFieldText
+                    inline
+                    smaller
+                    width="sm"
+                    className="tw-text-center tw-mx-2"
+                  />
+                  hours
+                </Text>
+              </InputRadioOption>
+            </InputRadioGroup>
+
             <span className="tw-inline-flex tw-items-center">
               <Label labelSize="md">Proxy location:</Label>
               <select
@@ -287,26 +258,31 @@ export const PhantomSetup = () => {
                 <option value="C">Lead Health</option>
               </select>
             </span>
-          </div>
+          </CalloutBox>
         </div>
-      </HorizontalOptions>
-
-      <SectionTitle>Notification Settings</SectionTitle>
+      </TwoColumns>
+      <SectionHeading>Notification Settings</SectionHeading>
       <Text el="p" className="tw-mb-4">
         Keep track of your flow by selecting when and how you want to be
         notified of its status.
       </Text>
+
+      <NotificationGrid />
+
       <CalloutBox className="tw-w-full">
         <Text>
           Remember to enter your Slack webhook to receive notifications via
           Slack
         </Text>
+
         <InputTextInline
           label="Your Slack hook:"
           placeholder="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
           helpLink={{ text: "Here's how to connect with Slack" }}
         />
       </CalloutBox>
+      <Button>Test Before Launch</Button>
+      <Button variant="branded">Launch</Button>
     </main>
   )
 }

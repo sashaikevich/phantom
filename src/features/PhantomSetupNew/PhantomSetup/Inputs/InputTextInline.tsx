@@ -23,7 +23,7 @@ export const InputTextInline = ({
 }: InputTextInlineProps) => {
   const forId = uid()
   return (
-    <div className={`tw-flex tw-items-start ${passedStyles || ""}`}>
+    <div className={`tw-flex tw-items-start tw-mb-2 last-of-type:tw-mb-0 ${passedStyles || ""}`}>
       {label && (
         <Label
           className="tw-mr-3 tw-w-36 tw-text-right tw-mt-1.5"

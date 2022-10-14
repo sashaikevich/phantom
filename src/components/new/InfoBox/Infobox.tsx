@@ -12,7 +12,8 @@ export const InfoBox = ({
   type = "notice",
   className: passedStyles,
 }: InfoBoxProps) => {
-  const sharedClasses = "tw-rounded-lg tw-px-3 tw-py-3 tw-flex tw-items-start tw-text-redi-ss"
+  const sharedClasses =
+    "tw-rounded-lg tw-px-3 tw-py-3 tw-flex tw-items-start tw-text-redi-ss"
 
   const noticeClasses = "tw-bg-redi-light-bg "
   const warningClasses = "tw-bg-redi-danger-bg "
@@ -23,7 +24,7 @@ export const InfoBox = ({
       className={classNames(
         passedStyles,
         sharedClasses,
-        isNotice ? noticeClasses : warningClasses,
+        isNotice ? noticeClasses : warningClasses
       )}
     >
       {isNotice ? (
@@ -35,8 +36,19 @@ export const InfoBox = ({
           <TiWarning className="tw-w-5 tw-h-5 tw-fill-redi-danger-dark" />
         </span>
       )}
-      <div className={isNotice ? "tw-text-redi-primary-dark" : "tw-text-redi-danger-dark"}>
-        {children}
+      <div
+        className={
+          isNotice ? "tw-text-redi-primary-dark" : "tw-text-redi-danger-dark"
+        }
+      >
+        {typeof children === "object" ? (
+          children
+        ) : (
+          <>
+            <span className="tw-uppercase tw-font-bold">Note: </span>
+            <span className="tw-italic tw-font-semibold">{children}</span>
+          </>
+        )}
       </div>
     </div>
   )

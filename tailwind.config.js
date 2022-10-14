@@ -42,6 +42,7 @@ module.exports = {
           light: "rgb(173, 177, 183)",
           "primary-dark": "rgb(29, 52, 134)",
           primary: "rgb(82, 115, 232)",
+          "primary-toggle": "rgb(63, 97, 218)",
           "primary-50": "rgb(168, 184, 243)",
           secondary: "rgb(97, 218, 253)",
           "light-bg": "rgb(243, 248, 255)",
