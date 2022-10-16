@@ -1,7 +1,6 @@
 import React from "react"
 
 import { Text } from "../Text"
-import { Label } from "../Inputs"
 import { TwoColumns } from "../Layout"
 
 interface SubSectionProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -27,26 +27,39 @@ export const NotificationGrid = () => {
   return (
     <>
       <table className="tw-w-full tw-border-collapse tw-mb-8">
-        <tr>
-          <td className="tw-w-80"></td>
-          {channels.map((channel, idx) => {
-            return <th key={channel + idx} className="tw-text-left tw-p-3"><Text variant="label-sm">{channel}</Text></th>
+        <thead>
+          <tr>
+            <td className="tw-w-80"></td>
+            {channels.map((channel, idx) => {
+              return (
+                <th key={channel + idx} className="tw-text-left tw-p-3">
+                  <Text variant="label-sm">{channel}</Text>
+                </th>
+              )
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {events.map(event => {
+            return (
+              <tr key={event.abbr} className="even:tw-bg-redi-light-bg">
+                <th className="tw-text-right tw-p-3 tw-pr-8">
+                  <Text variant="label-md">{event.label}</Text>
+                </th>
+                {channels.map((channel, idx) => {
+                  return (
+                    <td
+                      key={event.abbr + "_" + channel}
+                      className="tw-p-3 tw-pb-2"
+                    >
+                      <InputToggle />
+                    </td>
+                  )
+                })}
+              </tr>
+            )
           })}
-        </tr>
-        {events.map(event => {
-          return (
-            <tr key={event.abbr} className="even:tw-bg-redi-light-bg">
-              <th className="tw-text-right tw-p-3 tw-pr-8"><Text variant="label-md">{event.label}</Text></th>
-              {channels.map((channel, idx) => {
-                return (
-                  <td key={event.abbr + "_" + channel} className="tw-p-3 tw-pb-2">
-                    <InputToggle />
-                  </td>
-                )
-              })}
-            </tr>
-          )
-        })}
+        </tbody>
       </table>
     </>
   )

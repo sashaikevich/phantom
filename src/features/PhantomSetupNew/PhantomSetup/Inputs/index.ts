@@ -1,5 +1,6 @@
 export * from "./InputText"
 export * from "./InputTextInline"
+export * from "./InputCookie"
 export * from "./InputFieldTextArea"
 export * from "./InputFieldText"
 export * from "./InputToggle"
