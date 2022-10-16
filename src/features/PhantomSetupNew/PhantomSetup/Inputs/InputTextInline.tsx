@@ -9,7 +9,7 @@ interface InputTextInlineProps
   layout?: "stacked" | "inline"
   helpLink?: HelpLinkProps
   required?: true
-  // onChange?: () => void
+  mappedName: string
 }
 
 export const InputTextInline = ({
@@ -17,13 +17,17 @@ export const InputTextInline = ({
   placeholder,
   helpLink,
   required,
-  onChange,
   className: passedStyles,
+  mappedName,
   ...props
 }: InputTextInlineProps) => {
   const forId = uid()
   return (
-    <div className={`tw-flex tw-items-start tw-mb-2 last-of-type:tw-mb-0 ${passedStyles || ""}`}>
+    <div
+      className={`tw-flex tw-items-start tw-mb-2 last-of-type:tw-mb-0 ${
+        passedStyles || ""
+      }`}
+    >
       {label && (
         <Label
           className="tw-mr-3 tw-w-36 tw-text-right tw-mt-1.5"
@@ -36,10 +40,10 @@ export const InputTextInline = ({
       <div className="tw-grow">
         <InputFieldText
           {...(required && { required: true })}
-          onChange={onChange}
           placeholder={placeholder}
           {...props}
           smaller
+          mappedName={mappedName}
           id={forId}
           className="tw-w-full"
         />

@@ -37,9 +37,10 @@ export const PhantomSetup = () => {
           helpLink={{ text: "See how to customize it" }}
           optional={true}
           multiline={true}
+          mappedName={"personalizedMsg"}
           placeholder={`Hey #firstName#, let's connect! \nBest regards`}
         />
-        <InputCookie />
+        <InputCookie mappedName={"linkedInCookie"} />
       </Section>
 
       <Section heading="Automation Settings">
@@ -165,6 +166,7 @@ export const PhantomSetup = () => {
                       inline
                       smaller
                       width="sm"
+                      mappedName={"keepNFolders"}
                       className="tw-text-center tw-mx-2"
                     />
                     folders
@@ -195,9 +197,16 @@ export const PhantomSetup = () => {
                 <InputTextInline
                   label="Address:"
                   placeholder="proxy.company.com:8080"
+                  mappedName={"proxyAddress"}
                 />
-                <InputTextInline label="Username:" />
-                <InputTextInline label="Password:" />
+                <InputTextInline
+                  label="Username:"
+                  mappedName={"proxyUsername"}
+                />
+                <InputTextInline
+                  label="Password:"
+                  mappedName={"proxyPassword"}
+                />
               </CalloutBox>
 
               <CalloutBox showFlag={false} className="tw-w-full">
@@ -215,6 +224,7 @@ export const PhantomSetup = () => {
                       <InputFieldText
                         inline
                         smaller
+                        mappedName="refreshFrequency"
                         width="sm"
                         className="tw-text-center tw-mx-2"
                       />
@@ -255,6 +265,7 @@ export const PhantomSetup = () => {
 
           <InputTextInline
             label="Your Slack hook:"
+            mappedName="slackWebHook"
             placeholder="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
             helpLink={{ text: "Here's how to connect with Slack" }}
           />

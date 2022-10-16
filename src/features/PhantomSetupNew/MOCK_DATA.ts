@@ -18,7 +18,16 @@ export const viewModes: viewModesType[] = [
   { label: "JSON", slug: "json" },
 ]
 
-export const INITIAL_DATA = {
+
+// todo use zod maybe
+interface LinkedInFlowInterface {
+    // typesafeProp1?: number,
+    // requiredProp1: string,
+    [key: string]: any
+}
+
+
+export const INITIAL_CONFIG:LinkedInFlowInterface = {
   searchTerm: {
     value: undefined,
   },
@@ -70,13 +79,13 @@ export const INITIAL_DATA = {
   preferred: {
     value: "none|phantom|random|http",
   },
-  address: {
+  proxyAddress: {
     value: undefined,
   },
-  username: {
+  proxyUsername: {
     value: undefined,
   },
-  password: {
+  proxyPassword: {
     value: "encript****",
   },
   refreshIP: {

@@ -1,6 +1,8 @@
 import React from "react"
 import { classNames } from "../../../../utils"
 
+import { useSetupContext } from "../../../../context/setupContext"
+
 export interface InputFieldTextProps
   extends React.HTMLAttributes<HTMLInputElement> {
   placeholder?: string
@@ -8,19 +10,22 @@ export interface InputFieldTextProps
   inline?: true
   width?: "sm" | "md" | "lg" | "full"
   smaller?: true
+  mappedName:string
   id?: string
 }
 export const InputFieldText = ({
   placeholder,
-  onChange,
   required,
   id,
   inline,
   smaller,
   width = "full",
+  mappedName,
   className: passedStyles,
   ...props
 }: InputFieldTextProps) => {
+  const { changeHandler } = useSetupContext()
+
   const inputWidth = {
     sm: "tw-w-24",
     md: "tw-w-64",
@@ -38,8 +43,12 @@ export const InputFieldText = ({
         passedStyles || ""
       )}
       id={id}
+      name={mappedName}
       type="text"
-      onChange={onChange}
+      onChange={(e)=>{
+        console.log('change')
+        changeHandler(mappedName!,e.target.value)
+      }}
       {...props}
       {...(required && { required: true })}
       placeholder={placeholder}

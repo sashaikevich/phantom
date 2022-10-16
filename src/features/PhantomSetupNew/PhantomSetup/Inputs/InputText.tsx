@@ -2,13 +2,14 @@ import React from "react"
 import { Label, LabelSizeType, InputFieldText, InputFieldTextArea } from "."
 import { HelpLink, HelpLinkProps } from "../"
 import { uid } from "../../../../utils"
+import { ChangeHandlerType } from "../../../../context/setupContext"
 
 interface InputTextProps
   extends React.HTMLAttributes<HTMLTextAreaElement | HTMLInputElement> {
   label?: string
   helpLink?: HelpLinkProps
   multiline?: boolean
-  // onChange?: () => void
+  mappedName: string
 }
 
 interface RequiredInputTextProps extends InputTextProps {
@@ -27,7 +28,7 @@ export const InputText = ({
   required,
   optional,
   multiline,
-  onChange,
+  mappedName,
   className: passedStyles = "",
   ...props
 }: RequiredInputTextProps | OptionalInputTextProps) => {
@@ -46,15 +47,15 @@ export const InputText = ({
       {multiline ? (
         <InputFieldTextArea
           {...(required && { required: true })}
-          onChange={onChange}
           placeholder={placeholder}
+          mappedName={mappedName}
           id={forId}
         />
       ) : (
         <InputFieldText
           {...(required && { required: true })}
-          onChange={onChange}
           placeholder={placeholder}
+          mappedName={mappedName}
           {...props}
           id={forId}
         />

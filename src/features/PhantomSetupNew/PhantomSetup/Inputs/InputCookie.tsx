@@ -2,12 +2,13 @@ import React from "react"
 import { InputText } from "./InputText"
 import { HelpLink } from "../HelpLink"
 
-export const InputCookie = () => {
+export const InputCookie = ({mappedName}:{mappedName:string}) => {
   return (
     <>
       <div className="tw-flex tw-w-full tw-items-end">
         <InputText
           required={true}
+          mappedName={mappedName}
           className="tw-w-full tw-mb-0"
           label="Connect to your LinkedIn with a cookie"
         />

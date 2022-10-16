@@ -1,14 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 import { InputText } from "."
 import { CalloutBox } from "../CalloutBox"
 import { Text } from "../Text"
 
-export const InputSearch = () => {
+import { useSetupContext } from "../../../../context/setupContext"
+
+interface InputSearchProps {
+  // todo make less loose
+  onChange?: (field: string, value: unknown) => void
+}
+
+export const InputSearch = ({ onChange }: InputSearchProps) => {
   return (
     <>
       <InputText
         label="Your search"
         helpLink={{ text: "Learn how to run multiple searches" }}
+        mappedName="searchTerm"
         placeholder="https://www.linkedin.com/search/results/people/?keywords=..."
       />
       <CalloutBox className="tw-py-1 tw--mt-3 tw-mb-9">

@@ -1,19 +1,22 @@
 import React from "react"
+import { useSetupContext } from "../../../../context/setupContext"
 
 export interface InputFieldTextAreaProps
   extends React.HTMLAttributes<HTMLTextAreaElement> {
   placeholder?: string
   required?: true
   id?: string
+  mappedName: string
 }
 export const InputFieldTextArea = ({
   placeholder,
-  onChange,
   required,
   id,
+  mappedName,
   className: passedStyles,
   ...props
 }: InputFieldTextAreaProps) => {
+  const { changeHandler } = useSetupContext()
   return (
     <textarea
       {...(required && { required: true })}
@@ -22,7 +25,10 @@ export const InputFieldTextArea = ({
         passedStyles || ""
       }`}
       id={id}
-      onChange={onChange}
+      name={mappedName}
+      onChange={e => {
+        changeHandler(mappedName!, e.target.value)
+      }}
       rows={5}
       {...props}
     />
