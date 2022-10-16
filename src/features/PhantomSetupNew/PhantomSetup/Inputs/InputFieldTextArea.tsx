@@ -16,7 +16,7 @@ export const InputFieldTextArea = ({
   className: passedStyles,
   ...props
 }: InputFieldTextAreaProps) => {
-  const { changeHandler } = useSetupContext()
+  const { changeHandler, data } = useSetupContext()
   return (
     <textarea
       {...(required && { required: true })}
@@ -26,6 +26,7 @@ export const InputFieldTextArea = ({
       }`}
       id={id}
       name={mappedName}
+      value={data[mappedName].value}
       onChange={e => {
         changeHandler(mappedName!, e.target.value)
       }}

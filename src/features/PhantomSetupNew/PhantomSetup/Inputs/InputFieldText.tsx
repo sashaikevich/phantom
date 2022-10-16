@@ -24,7 +24,7 @@ export const InputFieldText = ({
   className: passedStyles,
   ...props
 }: InputFieldTextProps) => {
-  const { changeHandler } = useSetupContext()
+  const { changeHandler, data } = useSetupContext()
 
   const inputWidth = {
     sm: "tw-w-24",
@@ -44,6 +44,7 @@ export const InputFieldText = ({
       )}
       id={id}
       name={mappedName}
+      value={data[mappedName].value}
       type="text"
       onChange={(e)=>{
         console.log('change')

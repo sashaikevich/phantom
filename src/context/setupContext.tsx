@@ -26,7 +26,7 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
   const changeHandler = (field: string, value: unknown): void => {
     setData(draft => {
       // draft[field] = value
-      draft[field] = value
+      draft[field].value = value
     })
     console.log(data)
   }

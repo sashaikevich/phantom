@@ -31,7 +31,7 @@ export const PhantomSetup = () => {
       <PhantomHeader />
       <ViewToggle />
       <Section heading="Search Settings">
-        <InputSearch />
+        <InputSearch mappedName="searchTerm" />
         <InputText
           label="Personalized message"
           helpLink={{ text: "See how to customize it" }}
