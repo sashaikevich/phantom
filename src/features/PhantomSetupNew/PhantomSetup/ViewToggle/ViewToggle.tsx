@@ -2,18 +2,13 @@ import React from "react"
 import { useSetupContext } from "../../../../context/setupContext"
 import { Link, useSearchParams } from "react-router-dom"
 
+import { viewModes } from "../../MOCK_DATA"
+
 export const ViewToggle = () => {
-  const viewModes = [
-    { label: "Quick Start", slug: "quick" },
-    { label: "All Settings", slug: "full" },
-    { label: "JSON", slug: "json" },
-  ]
-
   const { chosenView, setView } = useSetupContext()
-
+  
   return (
     <div className="tw-text-right tw-mb-2">
-      {/* TODO: put this state into url later for easy sharing, consider wrapping in its own component */}
       <span className="tw-text-redi-placeholder tw-mr-4">Settings view:</span>
       <div className="tw-inline-flex tw-rounded-md tw-border tw-font-medium tw-border-redi-primary">
         {viewModes.map(mode => {

@@ -5,13 +5,6 @@ import { HelpLink } from "../HelpLink"
 export const InputCookie = () => {
   return (
     <>
-      <InputText
-        label="Personalized message"
-        helpLink={{ text: "See how to customize it" }}
-        optional={true}
-        multiline={true}
-        placeholder={`Hey #firstName#, let's connect! \nBest regards`}
-      />
       <div className="tw-flex tw-w-full tw-items-end">
         <InputText
           required={true}
