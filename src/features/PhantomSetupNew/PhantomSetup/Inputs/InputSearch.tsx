@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { InputText } from "."
+import { InputText } from "./index"
 import { CalloutBox } from "../CalloutBox"
 import { Text } from "../Text"
 
@@ -10,7 +10,7 @@ interface InputSearchProps {
 }
 
 export const InputSearch = ({ mappedName }: InputSearchProps) => {
-  const { data, changeHandler} = useSetupContext()
+  const { data, updateField} = useSetupContext()
   return (
     <>
       <InputText
@@ -20,7 +20,7 @@ export const InputSearch = ({ mappedName }: InputSearchProps) => {
         placeholder="https://www.linkedin.com/search/results/people/?keywords=..."
       />
 
-      {(data[mappedName].value === "spreadsheet" || data[mappedName].value === "csv") && (
+      {(data[mappedName].value === "sheet" || data[mappedName].value === "spreadsheet") && (
         <CalloutBox className="tw-py-1 tw--mt-3 tw-mb-9">
           <div className="tw-flex tw-items-center ">
             <Text>
@@ -33,9 +33,9 @@ export const InputSearch = ({ mappedName }: InputSearchProps) => {
             <select
               id="column"
               name="dataColumn"
-              // value={data[mappedName].value}
+              value={data["dataColumn"].value}
               onChange={e=>{
-                changeHandler(e.target.name, e.target.value)
+                updateField("dataColumn", e.target.value)
               }}
               className="tw-block tw-w-36 tw-rounded-md tw-py-1 tw-ml-2 tw-border-redi-placeholder"
             >

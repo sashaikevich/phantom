@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react"
 import { classNames } from "../../../../utils"
-import { Label } from "."
+import { Label } from "./index"
+import { useSetupContext } from "../../../../context/setupContext"
 
 interface InputRangeType {
-  width?: "sm" | "md" | "lg" | "full"
-  warning?: true
   min: number
   max: number
+  mappedName: string
+  width?: "sm" | "md" | "lg" | "full"
+  warning?: true
   initialVal?: number
   showLabels?: boolean
   numSteps?: number
@@ -26,10 +28,25 @@ export const InputRange = ({
   numSteps = 10,
   labelLow,
   labelHigh,
+  mappedName,
   showTooltip = true,
   tooltipOverride = val => val,
 }: InputRangeType) => {
-  const [rangeVal, setRangeVal] = useState<number | null>(initialVal)
+  const { updateField, data } = useSetupContext()
+
+  if (mappedName === "sendFrequency") {
+    console.log(data["sendFrequency"].value, max)
+  }
+
+  const rangeVal = data[mappedName].value
+  // normalize to bounds (important when another field updates min/max of this range)
+  if (rangeVal < min) {
+    updateField(mappedName, min)
+  }
+  if (rangeVal > max) {
+    updateField(mappedName, max)
+  }
+
   const [isActive, setIsActive] = useState(false)
   const rangeRef = useRef<HTMLInputElement>(null)
   const tooltipRef = useRef<HTMLInputElement>(null)
@@ -57,7 +74,7 @@ export const InputRange = ({
       const leftPos = effectiveTravelRange * progress
       tooltipRef.current.style.left = `${leftPos + THUMB_WIDTH / 2}px`
     }
-  }, [rangeVal])
+  }, [rangeVal, min, max])
 
   const rangeWidth = {
     sm: "tw-w-24",
@@ -73,7 +90,8 @@ export const InputRange = ({
           labelSize="sm"
           className="tw-mr-4"
           onClick={() => {
-            setRangeVal(min)
+            if (rangeRef.current) rangeRef.current.focus()
+            updateField(mappedName, min)
           }}
         >
           {labelLow || min}
@@ -89,23 +107,27 @@ export const InputRange = ({
           type="range"
           min={min}
           max={max}
-          value={rangeVal || initialVal}
+          // value={rangeVal || initialVal}
           step={(max - min) / numSteps || undefined}
           ref={rangeRef}
+          value={data[mappedName].value}
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}
+          onPointerEnter={() => setIsActive(true)}
+          onPointerLeave={() => setIsActive(false)}
           onChange={e => {
             // to get rid of decimal values caused by step devisions (0-100 vs 1-100)
-            setRangeVal(parseInt(e.target.value))
+            updateField(mappedName, parseInt(e.target.value))
           }}
           className="no-rding tw-peer"
         />
         {showTooltip && (
           <div
             ref={tooltipRef}
-            className={`${ isActive ? "tw-opacity-100" : "tw-opacity-0"}
-              ${warning ? "tw-bg-redi-danger-bg" : "tw-bg-redi-light-bg"
-            } tw-rounded-md tw-pointer-events-none tw-shadow-xl tw-text-center tw-absolute tw-px-3 tw-py-1 tw-bottom-full tw-mb-1 tw-translate-x-[-50%]`}
+            className={`${isActive ? "tw-opacity-100" : "tw-opacity-0"}
+              ${
+                warning ? "tw-bg-redi-danger-bg" : "tw-bg-redi-light-bg"
+              } tw-rounded-md tw-pointer-events-none tw-shadow-xl tw-text-center tw-absolute tw-px-3 tw-py-1 tw-bottom-full tw-mb-1 tw-translate-x-[-50%]`}
           >
             <span
               className={`${
@@ -122,12 +144,14 @@ export const InputRange = ({
           </div>
         )}
       </div>
+
       {showLabels && (
         <Label
           labelSize="sm"
           className="tw-ml-4"
           onClick={() => {
-            setRangeVal(max)
+            if (rangeRef.current) rangeRef.current.focus()
+            updateField(mappedName, max)
           }}
         >
           {labelHigh || max}

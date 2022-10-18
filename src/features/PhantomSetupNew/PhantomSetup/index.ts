@@ -1,6 +1,7 @@
 export * from "./CalloutBox"
 export * from "./HelpLink"
 export * from "./Inputs"
+export * from "./LaunchControls"
 export * from "./PhantomHeader"
 export * from "./PhantomSetup"
 export * from "./Section"

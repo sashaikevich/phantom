@@ -1,8 +1,10 @@
 import React from "react"
-import { Label } from "."
+import { Label } from "./index"
 import { uid } from "../../../../utils"
+import { useSetupContext } from "../../../../context/setupContext"
 
 interface InputToggleProps extends React.HTMLAttributes<HTMLInputElement> {
+  mappedName: string
   type?: "default" | "danger"
   label?: string
   forName?: string
@@ -13,19 +15,28 @@ export const InputToggle = ({
   className: passedStyles,
   label,
   forName = uid(),
+  mappedName,
   ...props
 }: InputToggleProps) => {
+  const { updateField, data } = useSetupContext()
   const size = " tw-w-[34px] tw-h-[18px]" // duplicating it to have pointer events and focus work while using real and faux checkbox
   return (
     <>
       <div className={`tw-inline-flex tw-items-start ${passedStyles || ""}`}>
-        <div className={`tw-relative tw-inline-flex tw-items-center tw-mt-[3px]`}>
+        <div
+          className={`tw-relative tw-inline-flex tw-items-center tw-mt-[3px]`}
+        >
           {/* display the input, but z-index it behind, and style its shape the same way as
            the faux input to hide the native checkmark, but keep the tab focus */}
           <input
             {...props}
             type="checkbox"
             id={forName}
+            value={data[mappedName].value}
+            checked={data[mappedName].value}
+            onChange={e => {
+              updateField(mappedName, e.target.checked)
+            }}
             className={`${size} tw-absolute tw--z-1  tw-rounded-full tw-peer tw-cursor-pointer`}
           />
           <div

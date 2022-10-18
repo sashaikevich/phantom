@@ -1,5 +1,5 @@
 import React from "react"
-import { Label, LabelSizeType, InputFieldText, InputFieldTextArea } from "."
+import { Label, LabelSizeType, InputFieldText, InputFieldTextArea } from "./index"
 import { HelpLink, HelpLinkProps } from "../"
 import { uid } from "../../../../utils"
 

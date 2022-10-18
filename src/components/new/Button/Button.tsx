@@ -1,8 +1,7 @@
 import React from "react"
 import { classNames } from "../../../utils"
 import { Spirit } from "../../../assets/Spirit"
-
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "branded"
   shadow?: boolean
 }
@@ -11,6 +10,8 @@ export const Button = ({
   shadow = true,
   variant = "secondary",
   children,
+  className: overrides = "",
+  ...props
 }: ButtonProps) => {
   const sharedClasses =
     "tw-cursor-pointer tw-rounded-full tw-text-redi-primary tw-text-lg tw-font-semibold tw-px-5 tw-py-1.5 tw-border-2 tw-border-redi-primary tw-drop-shadow-floating-blue"
@@ -23,9 +24,11 @@ export const Button = ({
       className={classNames(
         sharedClasses,
         (variant === "primary" || variant === "branded") && primaryClasses,
-        variant === "secondary" && secondaryClasses
+        variant === "secondary" && secondaryClasses,
+        overrides
       )}
       type="button"
+      {...props}
     >
       <span className="tw-inline-flex tw-items-center">
         {children}

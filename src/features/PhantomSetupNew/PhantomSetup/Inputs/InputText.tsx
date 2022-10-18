@@ -1,8 +1,14 @@
 import React from "react"
-import { Label, LabelSizeType, InputFieldText, InputFieldTextArea } from "."
+import {
+  Label,
+  LabelSizeType,
+  InputFieldText,
+  InputFieldTextArea,
+} from "./index"
 import { HelpLink, HelpLinkProps } from "../"
 import { uid } from "../../../../utils"
-import { ChangeHandlerType } from "../../../../context/setupContext"
+import { updateFieldType } from "../../../../context/setupContext"
+import { overrideTailwindClasses } from "tailwind-override"
 
 interface InputTextProps
   extends React.HTMLAttributes<HTMLTextAreaElement | HTMLInputElement> {
@@ -34,7 +40,7 @@ export const InputText = ({
 }: RequiredInputTextProps | OptionalInputTextProps) => {
   const forId = uid()
   return (
-    <div className={`tw-mb-9 ${passedStyles}`}>
+    <div className={overrideTailwindClasses(`tw-mb-9 ${passedStyles}`, {prefix: 'tw-'})}>
       {label && (
         <Label
           className="tw-mb-1.5"

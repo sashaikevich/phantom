@@ -3,26 +3,11 @@ import React from "react"
 import { InputToggle } from "./InputToggle"
 import { Text } from "../Text"
 
+import { useSetupContext } from "../../../../context/setupContext"
+import { channels, triggers } from "../../MOCK_DATA"
+
 export const NotificationGrid = () => {
-  const events = [
-    {
-      label: "Finished successfully",
-      abbr: "succ_finish",
-    },
-    {
-      label: "Finished with error",
-      abbr: "err_finish",
-    },
-    {
-      label: "Launch error",
-      abbr: "err_launch",
-    },
-    {
-      label: "Time limit reached",
-      abbr: "limit_time",
-    },
-  ]
-  const channels = ["Email", "Slack", "Webhook"]
+  const { data, updateField } = useSetupContext()
 
   return (
     <>
@@ -30,29 +15,74 @@ export const NotificationGrid = () => {
         <thead>
           <tr>
             <td className="tw-w-80"></td>
-            {channels.map((channel, idx) => {
+            {channels.map(channel => {
               return (
-                <th key={channel + idx} className="tw-text-left tw-p-3">
-                  <Text variant="label-sm">{channel}</Text>
+                <th key={channel.mappedSuffix} className="tw-text-left tw-p-3">
+                  <Text
+                    variant="label-sm"
+                    className="tw-cursor-default"
+                    onClick={() => {
+                      const channelEventKeys = Object.keys(data).filter(key =>
+                        key.endsWith(channel.mappedSuffix)
+                      )
+                      const totalActive = channelEventKeys.filter(
+                        key => data[key].value
+                      ).length
+
+                      if (totalActive < channels.length) {
+                        channelEventKeys.map(key => updateField(key, true))
+                      } else {
+                        channelEventKeys.map(key => updateField(key, false))
+                      }
+                    }}
+                  >
+                    {channel.label}
+                  </Text>
                 </th>
               )
             })}
           </tr>
         </thead>
         <tbody>
-          {events.map(event => {
+          {triggers.map((trigger, rowIdx) => {
             return (
-              <tr key={event.abbr} className="even:tw-bg-redi-light-bg">
+              <tr
+                key={trigger.mappedPrefix + rowIdx}
+                className="even:tw-bg-redi-light-bg"
+              >
                 <th className="tw-text-right tw-p-3 tw-pr-8">
-                  <Text variant="label-md">{event.label}</Text>
+                  <Text
+                    variant="label-md"
+                    className="tw-cursor-default"
+                    onClick={() => {
+                      const triggerEventKeys = Object.keys(data).filter(key =>
+                        key.startsWith(trigger.mappedPrefix)
+                      )
+                      const totalActive = triggerEventKeys.filter(
+                        key => data[key].value
+                      ).length
+
+                      if (totalActive < channels.length) {
+                        triggerEventKeys.map(key => updateField(key, true))
+                      } else {
+                        triggerEventKeys.map(key => updateField(key, false))
+                      }
+                    }}
+                  >
+                    {trigger.label}
+                  </Text>
                 </th>
-                {channels.map((channel, idx) => {
+                {channels.map((channel, colIdx) => {
                   return (
                     <td
-                      key={event.abbr + "_" + channel}
+                      key={trigger.mappedPrefix + "_" + colIdx}
                       className="tw-p-3 tw-pb-2"
                     >
-                      <InputToggle />
+                      <InputToggle
+                        mappedName={
+                          trigger.mappedPrefix + "_" + channel.mappedSuffix
+                        }
+                      />
                     </td>
                   )
                 })}

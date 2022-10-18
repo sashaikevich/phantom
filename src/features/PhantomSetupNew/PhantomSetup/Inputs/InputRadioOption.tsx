@@ -1,9 +1,11 @@
 import React from "react"
 import { Label } from "./Label"
 import { classNames } from "../../../../utils"
+import { useSetupContext } from "../../../../context/setupContext"
 
 interface InputRadioOptionProps
   extends React.AllHTMLAttributes<HTMLInputElement> {
+  value: string | number
   forName?: string
   id?: string
   inputClasses?: string
@@ -15,8 +17,11 @@ export const InputRadioOption = ({
   children,
   id,
   warning,
+  value,
   inputClasses = "",
 }: InputRadioOptionProps) => {
+  const { data, updateField } = useSetupContext()
+
   const isString = typeof children === "string"
   const size = " tw-w-[14px] tw-h-[14px]" // duplicating it to have pointer events and focus work while using real and faux radiobutton
   return (
@@ -33,7 +38,13 @@ export const InputRadioOption = ({
             }  tw-cursor-pointer tw-appearance-none tw--z-1 `}
             type="radio"
             name={forName}
+            value={value}
+            onChange={e => {
+              console.log(forName)
+              updateField(forName!, e.target.value)
+            }}
             id={id}
+            checked={data[forName!].value === value}
           />
           <span
             className={`${size} tw-opacity-0 tw-absolute tw-rounded-full tw-pointer-events-none peer-checked:tw-bg-white peer-checked:tw-border ${

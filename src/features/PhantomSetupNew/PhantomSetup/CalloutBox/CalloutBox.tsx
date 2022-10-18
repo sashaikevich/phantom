@@ -14,7 +14,7 @@ export const CalloutBox = ({
 }: CalloutBoxProps) => {
   return (
     <div
-      className={`tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-4 tw-py-3 tw-rounded-lg tw-inline-block ${passedStyles}`}
+      className={`tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-4 tw-py-3 tw-rounded-lg tw-inline-block tw-self-start ${passedStyles}`}
     >
       <div className="">{children}</div>
       {showFlag && (

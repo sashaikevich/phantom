@@ -14,7 +14,10 @@ export const Text = ({
   children,
   el,
   // todo do it this way for other overrides for consistency
+  // and implement tailwind overrides
   className: overrides = "",
+  // make other components flexible with props
+  ...props
 }: TextProps) => {
   let classes = "" as string
 
@@ -29,7 +32,7 @@ export const Text = ({
     }
     case "label-sm": {
       classes =
-        "tw-text-redi-dark tw-text-redi-sm tw-font-bold tw-text-redi-medium"
+        "tw-text-redi-sm tw-font-bold tw-text-redi-medium"
       break
     }
     case "section-title": {
@@ -51,6 +54,8 @@ export const Text = ({
   // uncomment to see what's not styled with <Text /> on the page
   // return <></>
   return (
-    <Component className={classNames(classes, overrides)}>{children}</Component>
+    <Component {...props} className={classNames(classes, overrides)}>
+      {children}
+    </Component>
   )
 }

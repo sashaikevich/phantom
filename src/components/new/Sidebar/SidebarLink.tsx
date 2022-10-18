@@ -15,7 +15,7 @@ export const SidebarLink = ({
     "tw-inline-flex tw-relative tw-text-redi-medium tw-my-3 tw-cursor-pointer hover:tw-underline"
   const sectionClasses = "tw-font-bold"
   const subsectionClasses = "tw-pl-3 tw-font-semibold tw-text-sm"
-  const resourceClasses = "tw-items-center tw-space-x-4 tw-pl-0"
+  const resourceClasses = "tw-items-center tw-space-x-4 tw-pl-0 hover:tw-text-redi-primary"
   return (
     <div>
       <span

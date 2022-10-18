@@ -1,3 +1,6 @@
+import { overrideTailwindClasses } from "tailwind-override"
+
+
 export function makeUrlPathFromTitle(title: string) {
   return encodeURIComponent(title.replaceAll(" ", "-"))
 }

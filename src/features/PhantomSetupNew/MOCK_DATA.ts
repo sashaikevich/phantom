@@ -1,33 +1,40 @@
 import { string } from "prop-types"
 
+/* 
+PHANTOM'S VIEW MODES
+*/
+
 interface viewModesType {
   label: string
-  slug: "quick" | "full" | "json"
+  slug: "quick" | "all" | "json"
 }
 
-// todo: figure out how to do this automatically:
+// bous: figure out how to do this automatically:
 // export enum ViewModeSlug {
 //   quick = "quick",
-//   full = "full",
+//   full = "all",
 //   json = "json",
 // }
 
 export const viewModes: viewModesType[] = [
   { label: "Quick Start", slug: "quick" },
-  { label: "All Settings", slug: "full" },
+  { label: "All Settings", slug: "all" },
   { label: "JSON", slug: "json" },
 ]
 
+/*
+PHANTOM'S SHAPE
+*/
 
-// todo use zod maybe
+// bonus properly type this zod / json2ts
+
 interface LinkedInFlowInterface {
-    // typesafeProp1?: number,
-    // requiredProp1: string,
-    [key: string]: any
+  [key: string]: {
+    value: any
+  }
 }
 
-
-export const INITIAL_CONFIG:LinkedInFlowInterface = {
+export const INITIAL_CONFIG: LinkedInFlowInterface = {
   searchTerm: {
     value: undefined,
   },
@@ -46,8 +53,8 @@ export const INITIAL_CONFIG:LinkedInFlowInterface = {
   useSalesNavigator: {
     value: false,
   },
-  sendOnWeekend: {
-    value: false,
+  sendSchedule: {
+    value: "weekdays",
   },
   sendFrequency: {
     value: 1,
@@ -71,13 +78,13 @@ export const INITIAL_CONFIG:LinkedInFlowInterface = {
     value: 0,
   },
   manageFolders: {
-    value: "delete|create|keep",
+    value: "keep",
   },
   keepNFolders: {
     value: undefined,
   },
-  preferred: {
-    value: "none|phantom|random|http",
+  preferredProxy: {
+    value: "none",
   },
   proxyAddress: {
     value: undefined,
@@ -86,33 +93,94 @@ export const INITIAL_CONFIG:LinkedInFlowInterface = {
     value: undefined,
   },
   proxyPassword: {
-    value: "encript****",
+    value: undefined,
   },
-  refreshIP: {
-    value: false,
+  IPLifespan: {
+    value: "static",
   },
   refreshFrequency: {
     value: undefined,
   },
   proxyLocation: {
+    value: "France",
+  },
+  eventSuccFinish_via_email: {
+    value: false,
+  },
+  eventSuccFinish_via_slack: {
+    value: false,
+  },
+  eventSuccFinish_via_webhook: {
+    value: false,
+  },
+  eventErrFinish_via_email: {
+    value: false,
+  },
+  eventErrFinish_via_slack: {
+    value: false,
+  },
+  eventErrFinish_via_webhook: {
+    value: false,
+  },
+  eventErrLaunch_via_email: {
+    value: false,
+  },
+  eventErrLaunch_via_slack: {
+    value: false,
+  },
+  eventErrLaunch_via_webhook: {
+    value: false,
+  },
+  eventLimitTime_via_email: {
+    value: false,
+  },
+  eventLimitTime_via_slack: {
+    value: false,
+  },
+  eventLimitTime_via_webhook: {
+    value: false,
+  },
+  slackWebhook: {
     value: undefined,
   },
-  eventSuccFinish: {
-    value: [undefined],
-  },
-  eventErrFinish: {
-    value: [undefined],
-  },
-  eventErrLaunch: {
-    value: [undefined],
-  },
-  eventLimitTime: {
-    value: [undefined],
-  },
-  slackWebHook: {
-    value: undefined,
-  },
-  webHook: {
+  webhook: {
     value: undefined,
   },
 }
+
+/*
+PHANTOM'S NOTIFICATION OPTIONS 
+*/
+
+export const triggers = [
+  {
+    label: "Finished successfully",
+    mappedPrefix: "eventSuccFinish",
+  },
+  {
+    label: "Finished with error",
+    mappedPrefix: "eventErrFinish",
+  },
+  {
+    label: "Launch error",
+    mappedPrefix: "eventErrLaunch",
+  },
+  {
+    label: "Time limit reached",
+    mappedPrefix: "eventLimitTime",
+  },
+]
+export const channels = [
+  {
+    label: "Email",
+    mappedSuffix: "via_email",
+  },
+  {
+    label: "Slack",
+    mappedSuffix: "via_slack",
+  },
+  {
+    label: "Webhook",
+    mappedSuffix: "via_webhook",
+  },
+]

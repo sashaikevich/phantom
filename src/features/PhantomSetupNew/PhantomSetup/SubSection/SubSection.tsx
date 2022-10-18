@@ -16,7 +16,7 @@ export const SubSection = ({
   columnView = true,
 }: SubSectionProps) => {
   return (
-    <section className="tw-border-b tw-border-b-redi-primary/10 last-of-type:tw-border-none tw-py-12 first-of-type:tw-pt-0">
+    <section className="tw-border-b tw-border-b-redi-primary/10 tw-py-12 last-of-type:tw-border-none last-of-type:tw-pb-0 first-of-type:tw-pt-0">
       <Text el="h4" variant="label-lg" className="tw-mb-4">
         {heading}
       </Text>

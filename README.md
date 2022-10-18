@@ -1,3 +1,6 @@
+<!-- todo  -->
+import / use overrideTailwindClasses throughout hte package to fix class clashes 
+
 # Ghostbuster Cadet Evaluation
 This is the proposed roadmap to demo required skills to join team Phantom:
 
