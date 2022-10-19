@@ -1,7 +1,12 @@
 import React from "react"
-import { Label, LabelSizeType, InputFieldText, InputFieldTextArea } from "./index"
+import {
+  Label,
+  LabelSizeType,
+  InputFieldText,
+  InputFieldTextArea,
+} from "./index"
 import { HelpLink, HelpLinkProps } from "../"
-import { uid } from "../../../../utils"
+import { uid, classNames } from "../../../../utils"
 
 interface InputTextInlineProps
   extends React.HTMLAttributes<HTMLTextAreaElement | HTMLInputElement> {
@@ -17,16 +22,17 @@ export const InputTextInline = ({
   placeholder,
   helpLink,
   required,
-  className: passedStyles,
+  className: passedStyles = "",
   mappedName,
   ...props
 }: InputTextInlineProps) => {
   const forId = uid()
   return (
     <div
-      className={`tw-flex tw-items-start tw-mb-2 last-of-type:tw-mb-0 ${
-        passedStyles || ""
-      }`}
+      className={classNames(
+        "tw-flex tw-items-start tw-mb-2 last-of-type:tw-mb-0",
+        passedStyles
+      )}
     >
       {label && (
         <Label

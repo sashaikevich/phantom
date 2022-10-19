@@ -1,5 +1,6 @@
 import React, { LabelHTMLAttributes } from "react"
 import { Text } from ".."
+import { classNames } from "../../../../utils"
 
 export type LabelSizeType = "lg" | "md" | "sm"
 
@@ -13,14 +14,14 @@ export const Label = ({
   optional,
   id,
   labelSize = "lg",
-  className: passedStyles,
+  className: passedStyles = "",
   children,
   htmlFor,
   ...props
 }: LabelProps) => {
   return (
     <label
-      className={`tw-inline-block ${passedStyles || ""}`}
+      className={classNames("tw-inline-block", passedStyles)}
       htmlFor={htmlFor}
       {...(props && props)}
     >

@@ -8,7 +8,7 @@ interface InputRadioOptionProps
   value: string | number
   forName?: string
   id?: string
-  inputClasses?: string
+  inputStyleOverride?: string
   warning?: true
 }
 
@@ -18,7 +18,7 @@ export const InputRadioOption = ({
   id,
   warning,
   value,
-  inputClasses = "",
+  inputStyleOverride = "",
 }: InputRadioOptionProps) => {
   const { data, updateField } = useSetupContext()
 
@@ -28,14 +28,20 @@ export const InputRadioOption = ({
     <div className="tw-mb-2 last-of-type:tw-mb-0">
       <div className="tw-inline-flex tw-items-start ">
         <div
-          className={`tw-relative tw-inline-flex tw-items-center tw-mt-[5px] ${inputClasses}`}
+          className={classNames(
+            "tw-relative tw-inline-flex tw-items-center tw-mt-[5px]",
+            inputStyleOverride
+          )}
         >
           <input
-            className={`${size} tw-peer tw-relative ${
+            className={classNames(
+              size,
+              "tw-peer tw-relative",
               warning
                 ? "hover:tw-border-redi-danger"
-                : "hover:tw-border-redi-primary"
-            }  tw-cursor-pointer tw-appearance-none tw--z-1 `}
+                : "hover:tw-border-redi-primary",
+              " tw-cursor-pointer tw-appearance-none tw--z-1"
+            )}
             type="radio"
             name={forName}
             value={value}

@@ -1,5 +1,6 @@
 import React from "react"
 import { MdLabel } from "react-icons/md"
+import { classNames } from "../../../../utils"
 
 interface CalloutBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
@@ -14,7 +15,10 @@ export const CalloutBox = ({
 }: CalloutBoxProps) => {
   return (
     <div
-      className={`tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-4 tw-py-3 tw-rounded-lg tw-inline-block tw-self-start ${passedStyles}`}
+      className={classNames(
+        "tw-relative tw-bg-redi-light-bg tw-border-redi-secondary tw-border tw-px-4 tw-py-3 tw-rounded-lg tw-inline-block tw-self-start",
+        passedStyles
+      )}
     >
       <div className="">{children}</div>
       {showFlag && (

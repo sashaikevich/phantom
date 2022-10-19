@@ -9,7 +9,7 @@ export const PhantomHeader = () => {
     <div className="tw-flex tw-space-x-7 tw-mb-10">
       <div className="tw-basis-[55%]">
         <div className="tw-relative">
-          <h2 className="tw-font-bold tw-text-redi-heading-l tw-text-redi-dark tw-mb-8">
+          <h2 className="tw-font-bold tw-text-redisize-heading-l tw-text-redi-dark tw-mb-8">
             LinkedIn Search to Lead Connection
           </h2>
           <span className="tw-absolute tw-right-full tw-mr-2 tw--top-[0.1rem]">

@@ -274,7 +274,7 @@ export const PhantomSetup = () => {
                         Maintain the same fixed IP as long as possible
                       </InputRadioOption>
                       <InputRadioOption
-                        inputClasses="tw-translate-y-[5px]"
+                        inputStyleOverride="tw-translate-y-[5px]"
                         value="dynamic"
                       >
                         <Text variant="label-sm">
@@ -320,7 +320,7 @@ export const PhantomSetup = () => {
             <NotificationGrid />
 
             {viaSlack && (
-              <CalloutBox className="tw-w-full">
+              <CalloutBox className="tw-w-full tw-my-2">
                 <Text>
                   Remember to enter your Slack webhook to receive notifications
                   via Slack
@@ -335,7 +335,7 @@ export const PhantomSetup = () => {
               </CalloutBox>
             )}
             {viaWebhook && (
-              <CalloutBox showFlag={true} className="tw-w-full">
+              <CalloutBox showFlag={true} className="tw-w-full tw-my-2">
                 <Text>
                   Remember to enter your custom webhook to have it receive
                   notifications

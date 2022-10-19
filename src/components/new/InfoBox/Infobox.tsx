@@ -13,7 +13,7 @@ export const InfoBox = ({
   className: passedStyles,
 }: InfoBoxProps) => {
   const sharedClasses =
-    "tw-rounded-lg tw-px-3 tw-py-3 tw-flex tw-items-start tw-text-redi-ss"
+    "tw-rounded-lg tw-px-3 tw-py-3 tw-flex tw-items-start tw-text-redisize-ss"
 
   const noticeClasses = "tw-bg-redi-light-bg "
   const warningClasses = "tw-bg-redi-danger-bg "

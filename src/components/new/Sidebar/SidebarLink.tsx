@@ -1,7 +1,6 @@
 import React from "react"
 import { classNames } from "../../../utils"
 import { HiOutlineExternalLink } from "react-icons/hi"
-import { GoEyeClosed } from "react-icons/go"
 
 interface SidebarLinkProps {
   children: React.ReactNode
@@ -14,18 +13,17 @@ export const SidebarLink = ({
   variant,
   isDisabled = false,
 }: SidebarLinkProps) => {
-  const sharedClasses =
-    "tw-inline-flex tw-relative tw-text-redi-medium tw-my-3 tw-cursor-pointer hover:tw-text-redi-dark/80"
+  const sharedClasses = `tw-inline-flex tw-relative tw-text-redi-medium tw-my-3 tw-cursor-pointer ${isDisabled ? "" : "hover:tw-text-redi-dark/80"}`
   const sectionClasses = "tw-font-bold"
   const subsectionClasses = "tw-pl-3 tw-font-semibold tw-text-sm"
   const resourceClasses =
     "tw-items-center tw-space-x-4 tw-pl-0 hover:tw-text-redi-primary"
-  const disabledClasses = "tw-items-center ttw-opacity-20  tw-text-redi-placeholder tw-cursor-default hover:tw-text-redi-dark"
+  const disabledClasses = "tw-items-center ttw-opacity-20  tw-text-redi-light/50 tw-cursor-default hover:tw-none"
   return (
     <div>
       <span
         className={classNames(
-          "tw-group tw-text-",
+          "tw-group",
           sharedClasses,
           variant === "section" && sectionClasses,
           (variant === "subsection" || variant === "resource") &&

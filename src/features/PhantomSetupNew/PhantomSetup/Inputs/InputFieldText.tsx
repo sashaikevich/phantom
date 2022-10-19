@@ -1,6 +1,5 @@
 import React from "react"
 import { classNames } from "../../../../utils"
-
 import { useSetupContext } from "../../../../context/setupContext"
 
 export interface InputFieldTextProps
@@ -21,7 +20,7 @@ export const InputFieldText = ({
   smaller,
   width = "full",
   mappedName,
-  className: passedStyles,
+  className: passedStyles = "",
   ...props
 }: InputFieldTextProps) => {
   const { updateField, data } = useSetupContext()
@@ -40,7 +39,7 @@ export const InputFieldText = ({
         inline ? "tw-inline" : "tw-block",
         inputWidth[width],
         smaller ? "tw-py-1 tw-px-1.5 tw-rounded-md" : "tw-w-full tw-rounded-lg",
-        passedStyles || ""
+        passedStyles
       )}
       id={id}
       name={mappedName}

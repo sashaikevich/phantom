@@ -1,19 +1,21 @@
 import React from "react"
 import { useSetupContext } from "../../../../context/setupContext"
+import { classNames } from "../../../../utils"
 
 export interface InputFieldTextAreaProps
   extends React.HTMLAttributes<HTMLTextAreaElement> {
-    mappedName: string
+  mappedName: string
   placeholder?: string
   required?: true
   id?: string
 }
+
 export const InputFieldTextArea = ({
   placeholder,
   required,
   id,
   mappedName,
-  className: passedStyles,
+  className: passedStyles = "",
   ...props
 }: InputFieldTextAreaProps) => {
   const { updateField, data } = useSetupContext()
@@ -21,9 +23,10 @@ export const InputFieldTextArea = ({
     <textarea
       {...(required && { required: true })}
       placeholder={placeholder}
-      className={`tw-block tw-w-full tw-border tw-border-redi-borders tw-rounded-lg tw-text-redi-dark/80 tw-placeholder-redi-placeholder ${
-        passedStyles || ""
-      }`}
+      className={classNames(
+        "tw-block tw-w-full tw-border tw-border-redi-borders tw-rounded-lg tw-text-redi-dark/80 tw-placeholder-redi-placeholder",
+        passedStyles
+      )}
       id={id}
       name={mappedName}
       value={data[mappedName].value}

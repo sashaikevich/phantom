@@ -8,7 +8,7 @@ export function makeUrlPathFromTitle(title: string) {
 type Falsy = boolean | undefined | null | 0
 
 export function classNames(...classes: (string | Falsy)[]) {
-  return classes.filter(Boolean).join(" ")
+  return overrideTailwindClasses(classes.filter(Boolean).join(" "), {prefix:"tw-"})
 }
 
 export function uid() {

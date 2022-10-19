@@ -10,7 +10,7 @@ export const Button = ({
   shadow = true,
   variant = "secondary",
   children,
-  className: overrides = "",
+  className: passedStyles = "",
   ...props
 }: ButtonProps) => {
   const sharedClasses =
@@ -25,7 +25,7 @@ export const Button = ({
         sharedClasses,
         (variant === "primary" || variant === "branded") && primaryClasses,
         variant === "secondary" && secondaryClasses,
-        overrides
+        passedStyles
       )}
       type="button"
       {...props}

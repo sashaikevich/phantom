@@ -13,9 +13,7 @@ export const Text = ({
   variant,
   children,
   el,
-  // todo do it this way for other overrides for consistency
-  // and implement tailwind overrides
-  className: overrides = "",
+  className: passedStyles = "",
   // make other components flexible with props
   ...props
 }: TextProps) => {
@@ -23,25 +21,25 @@ export const Text = ({
 
   switch (variant) {
     case "label-lg": {
-      classes = "tw-text-redi-dark/80 tw-text-redi-mm tw-font-semibold"
+      classes = "tw-text-redi-dark/80 tw-text-redisize-mm tw-font-semibold"
       break
     }
     case "label-md": {
-      classes = "tw-text-redi-dark tw-text-redi-sm tw-font-medium"
+      classes = "tw-text-redi-dark tw-text-redisize-ss tw-font-medium"
       break
     }
     case "label-sm": {
       classes =
-        "tw-text-redi-sm tw-font-bold tw-text-redi-medium"
+        "tw-text-redisize-ss tw-font-bold tw-text-redi-medium"
       break
     }
     case "section-title": {
       classes =
-        "tw-text-redi-primary-dark tw-font-semibold tw-text-redi-heading-mm"
+        " tw-font-semibold tw-text-2xl tw-text-redi-primary-dark" 
       break
     }
     case "help": {
-      classes = " tw-font-semibold tw-text-redi-s"
+      classes = " tw-font-semibold tw-text-redisize-s"
       break
     }
     default: {
@@ -54,7 +52,7 @@ export const Text = ({
   // uncomment to see what's not styled with <Text /> on the page
   // return <></>
   return (
-    <Component {...props} className={classNames(classes, overrides)}>
+    <Component {...props} className={classNames(classes, passedStyles)}>
       {children}
     </Component>
   )

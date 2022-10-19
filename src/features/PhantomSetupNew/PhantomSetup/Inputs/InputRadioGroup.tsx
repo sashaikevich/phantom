@@ -6,12 +6,12 @@ interface InputRadioGroupProps extends React.AllHTMLAttributes<HTMLDivElement> {
 }
 export const InputRadioGroup = ({
   mappedName,
-  className: passedStyles,
+  className: passedStyles = "",
   children,
 }: InputRadioGroupProps) => {
   return (
     <div
-      className={` ${passedStyles || ""}`}
+      className={passedStyles}
     >
       {React.Children.map(children, (child, index) => {
         return (

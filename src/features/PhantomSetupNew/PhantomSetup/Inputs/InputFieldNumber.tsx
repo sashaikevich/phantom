@@ -13,13 +13,14 @@ export interface InputFieldNumberProps
   smaller?: true
   id?: string
 }
+
 export const InputFieldNumber = ({
   mappedName,
   placeholder,
   required,
   inline,
   smaller,
-  className: passedStyles,
+  className: passedStyles = "",
   id,
   ...props
 }: InputFieldNumberProps) => {
@@ -31,7 +32,7 @@ export const InputFieldNumber = ({
         "tw-border tw-border-redi-borders tw-text-redi-dark/80 tw-placeholder-redi-placeholder tw-w-24",
         inline ? "tw-inline" : "tw-block",
         smaller ? "tw-py-1 tw-px-1.5 tw-rounded-md" : "tw-w-full tw-rounded-lg",
-        passedStyles || ""
+        passedStyles
       )}
       id={id}
       name={mappedName}

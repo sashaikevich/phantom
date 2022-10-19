@@ -6,9 +6,8 @@ import {
   InputFieldTextArea,
 } from "./index"
 import { HelpLink, HelpLinkProps } from "../"
-import { uid } from "../../../../utils"
+import { uid, classNames } from "../../../../utils"
 import { updateFieldType } from "../../../../context/setupContext"
-import { overrideTailwindClasses } from "tailwind-override"
 
 interface InputTextProps
   extends React.HTMLAttributes<HTMLTextAreaElement | HTMLInputElement> {
@@ -40,7 +39,7 @@ export const InputText = ({
 }: RequiredInputTextProps | OptionalInputTextProps) => {
   const forId = uid()
   return (
-    <div className={overrideTailwindClasses(`tw-mb-9 ${passedStyles}`, {prefix: 'tw-'})}>
+    <div className={classNames("tw-mb-9", passedStyles)}>
       {label && (
         <Label
           className="tw-mb-1.5"

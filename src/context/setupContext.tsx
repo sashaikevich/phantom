@@ -43,18 +43,20 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
   // update input within a radio option
   // bonus: create a hook
   useEffect(() => {
+    // ensure that if that radio option is chosen, that the related foldes field receives a value
     if (data["manageFolders"].value === "create") {
       // mini validation implementation
       if (
         !(data["keepNFolders"].value >= 1) ||
         !(data["keepNFolders"].value <= 500)
-      ) {
-        updateField("keepNFolders", 20)
+        ) {
+          updateField("keepNFolders", 20)
+        }
       }
-    }
-  }, [data["manageFolders"].value])
-
-  useEffect(() => {
+    }, [data["manageFolders"].value])
+    
+    useEffect(() => {
+    // ensure that if that radio option is chosen, that the related IP lifespan receives a value
     if (data["IPLifespan"].value === "dynamic") {
       // mini validation implementation
       if (

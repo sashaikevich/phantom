@@ -24,7 +24,7 @@ export const CookieConnect = ({
             <span className="tw-mx-4 tw-mb-2 tw-text-redi-placeholder">or</span>
             <a
               href="#"
-              className="tw-block tw-w-full tw-bg-redi-light-bg tw-text tw-rounded-xl tw-text-redi-primary hover:tw-text-redi-primary hover:tw-bg-redi-primary/10 tw-border tw-border-redi-primary tw-text-center tw-text-redi-mm tw-font-semibold tw-pb-1.5 tw-pt-2"
+              className="tw-block tw-w-full tw-bg-redi-light-bg tw-text tw-rounded-xl tw-text-redi-primary hover:tw-text-redi-primary hover:tw-bg-redi-primary/10 tw-border tw-border-redi-primary tw-text-center tw-text-redisize-mm tw-font-semibold tw-pb-1.5 tw-pt-2"
             >
               Auto-connect with our browser extension
             </a>
