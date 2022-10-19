@@ -6,7 +6,7 @@ export const LaunchControls = () => {
   const { isValid, setIsValid } = useSetupContext()
   return (
     <div className="tw-flex tw-justify-between tw-space-x-2 tw-mt-5 tw-mb-12">
-      <Button variant="primary" className="tw-mr-auto">reset</Button>
+      <Button variant="warning" className="tw-mr-auto">reset all</Button>
       <Button
         onClick={() => {
           setTimeout(() => {

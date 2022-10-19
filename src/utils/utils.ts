@@ -20,23 +20,25 @@ export function uid() {
 
 interface FlatMenuItemType extends Omit<FlowMenuItemType, "subMenuItems"> {
   id: number
+  level: number
   childrenIds?: number[]
 }
 
 export function flattenMenu(menu: FlowMenuItemType[]) {
   const flatMenu = [] as FlatMenuItemType[]
   let id = 0
+  const lvl = 0
 
-  function flatten(menu: FlowMenuItemType[], providedParent?: number) {
+  function flatten(menu: FlowMenuItemType[], level: number, providedParent?: number) {
     menu.forEach(item => {
       if (item.subMenuItems?.length) {
         const { label, visibleIn } = item
-        flatMenu.push({ id, label, visibleIn, childrenIds: [] })
+        flatMenu.push({ id, level: lvl, label, visibleIn, childrenIds: [] })
         const parentId = id
         id++
-        flatten(item.subMenuItems, parentId)
+        flatten(item.subMenuItems, level+1, parentId)
       } else {
-        flatMenu.push({ id, ...item })
+        flatMenu.push({ id, level:level, ...item })
         if (providedParent !== undefined) {
           flatMenu[providedParent].childrenIds!.push(id)
         }
@@ -45,6 +47,6 @@ export function flattenMenu(menu: FlowMenuItemType[]) {
     })
   }
 
-  flatten(menu)
+  flatten(menu, 0)
   return flatMenu
 }

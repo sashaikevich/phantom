@@ -13,7 +13,7 @@ export const PhantomHeader = () => {
             LinkedIn Search to Lead Connection
           </h2>
           <span className="tw-absolute tw-right-full tw-mr-2 tw--top-[0.1rem]">
-            <Link to="#">
+            <Link to="#" className="no-ring">
               <BiLeftArrowAlt className="tw-fill-redi-primary-50  tw-w-8 tw-h-8 hover:tw-fill-redi-primary" />
             </Link>
           </span>

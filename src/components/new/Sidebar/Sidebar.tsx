@@ -17,12 +17,13 @@ export const Sidebar = () => {
 
   const { chosenView } = useSetupContext()
 
+  console.log(flatMenu)
   return (
     <aside className="tw-relative tw-bg-redi-light-bg tw-bsis tw-flex tw-border-r tw-border-r-solid tw-border-r-redi-primary-dark/30 ">
       <nav className="tw-mr-0 tw-ml-auto tw-px-4 tw-py-8 tw-w-full tw-max-w-[250px] tw-sticky tw-top-0 tw-self-start ">
-        <Link
+        <Link 
           to="#"
-          className="tw-flex tw-items-center tw-relative tw-text-redi-primary-50 tw-mb-8 tw-group hover:hover:tw-text-redi-primary "
+          className="no-ring tw-flex tw-items-center tw-relative tw-text-redi-primary-50 tw-mb-8 tw-group hover:hover:tw-text-redi-primary "
         >
           <BiLeftArrowAlt className="tw-fill-redi-primary-50 tw-absolute tw-right-full tw-w-5 tw-h-5 group-hover:tw-fill-redi-primary" />
           back
@@ -36,7 +37,7 @@ export const Sidebar = () => {
             return (
               <SidebarLink
                 isDisabled={!item.visibleIn.includes(chosenView as VisibleSlug)}
-                variant={item.childrenIds ? "section" : "subsection"}
+                variant={item.level >0 ? "subsection" : "section"}
                 key={item.label}
               >
                 {item.label}
