@@ -4,9 +4,15 @@ import { string } from "prop-types"
 PHANTOM'S VIEW MODES
 */
 
+export enum VisibleSlug {
+  Quick = "quick",
+  All = "all",
+  JSON = "json",
+}
+
 interface viewModesType {
   label: string
-  slug: "quick" | "all" | "json"
+  slug: VisibleSlug
 }
 
 // bous: figure out how to do this automatically:
@@ -17,9 +23,9 @@ interface viewModesType {
 // }
 
 export const viewModes: viewModesType[] = [
-  { label: "Quick Start", slug: "quick" },
-  { label: "All Settings", slug: "all" },
-  { label: "JSON", slug: "json" },
+  { label: "Quick Start", slug: VisibleSlug.Quick },
+  { label: "All Settings", slug: VisibleSlug.All },
+  { label: "JSON", slug: VisibleSlug.JSON },
 ]
 
 /*
@@ -182,5 +188,62 @@ export const channels = [
   {
     label: "Webhook",
     mappedSuffix: "via_webhook",
+  },
+]
+
+/* 
+PHANTOM SETUP MENU
+*/
+export interface FlowMenuItemType {
+  label: string
+  visibleIn: VisibleSlug[]
+  subMenuItems?: FlowMenuItemType[]
+}
+
+export const flowMenuItems: FlowMenuItemType[] = [
+
+  {
+    label: "Search",
+    visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+    subMenuItems: [
+      {
+        label: "Cookie",
+        visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+      },
+    ],
+  },
+  {
+    label: "Automation",
+    visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+    subMenuItems: [
+      {
+        label: "Outreach account",
+        visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+      },
+      {
+        label: "Outreach limits",
+        visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+      },
+      {
+        label: "Extraction limits",
+        visibleIn: [VisibleSlug.All],
+      },
+      {
+        label: "Critical Execution limits",
+        visibleIn: [VisibleSlug.All],
+      },
+      {
+        label: "Data management",
+        visibleIn: [VisibleSlug.All],
+      },
+    ],
+  },
+  {
+    label: "Proxies",
+    visibleIn: [VisibleSlug.All],
+  },
+  {
+    label: "Notifications",
+    visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
   },
 ]

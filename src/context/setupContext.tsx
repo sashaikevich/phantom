@@ -1,7 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { useImmer } from "use-immer"
-import { INITIAL_CONFIG } from "../features/PhantomSetupNew/MOCK_DATA"
+import {
+  INITIAL_CONFIG,
+  VisibleSlug,
+} from "../features/PhantomSetupNew/MOCK_DATA"
 
 // todo typing is a bit too loose now
 export type updateFieldType = (field: string, value: unknown) => void
@@ -30,12 +33,12 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
   const [view, setView] = useSearchParams({ view: "quick" })
   const [isValid, setIsValid] = useState(false)
   const [data, setData] = useImmer<typeof INITIAL_CONFIG>(INITIAL_CONFIG)
-  const chosenView = view.get("view")
   const sendOnWeekend = data["sendSchedule"].value === "weekdays"
   const viaWebhook = isChannelSelected("via_webhook")
   const viaSlack = isChannelSelected("via_slack")
   const isPhantomProxy = data["preferredProxy"].value === "phantombuster"
   const isHTTPProxy = data["preferredProxy"].value === "http"
+  const chosenView = view.get("view")!
 
   // update input within a radio option
   // bonus: create a hook
@@ -80,11 +83,6 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
     return totalActive > 0
   }
 
-  // todo figure out why setView({view:"quick"}) is not updating the url on initial load
-  // if (chosenView === null) {
-  //   setView({ view: "quick" })
-  // }
-
   return (
     <SetupContext.Provider
       value={{
@@ -105,7 +103,7 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
     </SetupContext.Provider>
   )
 }
-// search params
+
 export const useSetupContext = () => {
   return useContext(SetupContext)
 }

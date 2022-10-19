@@ -218,7 +218,7 @@ export const PhantomSetup = () => {
                         />
                         folders
                       </Text>
-                    </InputRadioOption>
+                  </InputRadioOption>
                   </InputRadioGroup>
                 </SubSection>
               </>
@@ -356,3 +356,4 @@ export const PhantomSetup = () => {
     </main>
   )
 }
+
