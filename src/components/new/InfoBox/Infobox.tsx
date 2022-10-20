@@ -41,12 +41,14 @@ export const InfoBox = ({
           isNotice ? "tw-text-redi-primary-dark" : "tw-text-redi-danger-dark"
         }
       >
+        {/* override the Note / Warning text */}
         {typeof children === "object" ? (
           children
         ) : (
           <>
-            <span className="tw-uppercase tw-font-bold">Note: </span>
-            <span className="tw-italic tw-font-semibold">{children}</span>
+            <span className="tw-uppercase tw-font-bold">
+              {isNotice ? "Note: " : "Warning: "}</span>
+            <span className="tw-italic tw-font-medium">{children}</span>
           </>
         )}
       </div>

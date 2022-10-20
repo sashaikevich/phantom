@@ -1,1 +1,1 @@
-export * from "./Infobox"
+export * from "./InfoBox"

@@ -1,12 +1,15 @@
 import React from "react"
 import { Button } from "../../../../components/new"
 import { useSetupContext } from "../../../../context/setupContext"
+import { LaunchButton } from "."
 
 export const LaunchControls = () => {
   const { isValid, setIsValid } = useSetupContext()
   return (
     <div className="tw-flex tw-justify-between tw-space-x-2 tw-mt-5 tw-mb-12">
-      <Button variant="warning" className="tw-mr-auto">reset all</Button>
+      <Button variant="warning" className="tw-mr-auto">
+        reset all
+      </Button>
       <Button
         onClick={() => {
           setTimeout(() => {
@@ -17,9 +20,8 @@ export const LaunchControls = () => {
       >
         Test Before Launch
       </Button>
-      <Button variant="branded" disabled={!isValid}>
-        Launch
-      </Button>
+      
+      <LaunchButton disabled={!isValid} />
     </div>
   )
 }

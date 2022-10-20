@@ -66,6 +66,10 @@ export const PhantomSetup = () => {
           <Section
             heading={`${chosenView === "all" ? "All " : ""}Automation Settings`}
           >
+            <InfoBox type="notice" className="tw-mb-12">
+              You must stay logged into LinkedIn for this flow to run. (You may
+              close your browser, but not log out.)
+            </InfoBox>
             <SubSection heading="Outreach account">
               <Text variant="label-md" className="tw-text-right">
                 Use Sales Navigator:
@@ -218,15 +222,11 @@ export const PhantomSetup = () => {
                         />
                         folders
                       </Text>
-                  </InputRadioOption>
+                    </InputRadioOption>
                   </InputRadioGroup>
                 </SubSection>
               </>
             )}
-            <InfoBox type="notice" className="tw-mt-12">
-              You must stay logged into LinkedIn for this flow to run. (You may
-              close your browser, but not log out.)
-            </InfoBox>
           </Section>
           {chosenView === "all" && (
             <Section heading="Proxy Settings">
@@ -356,4 +356,3 @@ export const PhantomSetup = () => {
     </main>
   )
 }
-
