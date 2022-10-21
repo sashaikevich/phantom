@@ -31,7 +31,7 @@ export const CookieConnect = ({
           </>
         )}
       </div>
-      <HelpLink text="Where do I find it?" className="tw-mt-1" />
+      <HelpLink text="Where do I find it?" className="tw-mt-0" />
     </>
   )
 }

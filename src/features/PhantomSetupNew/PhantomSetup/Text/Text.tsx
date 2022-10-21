@@ -25,7 +25,7 @@ export const Text = ({
       break
     }
     case "label-md": {
-      classes = "tw-text-redi-dark tw-text-redisize-ss tw-font-medium"
+      classes = "tw-text-redi-dark tw-text-redisize-m tw-font-medium tw-mt-0.5"
       break
     }
     case "label-sm": {

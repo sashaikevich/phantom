@@ -1,26 +1,29 @@
 import React from "react"
+import { SidebarLink } from "./SidebarLink"
 import { BiLeftArrowAlt } from "react-icons/bi"
 import { IoDocument } from "react-icons/io5"
-import { BsFillPlayCircleFill } from "react-icons/bs"
 import { GoCode } from "react-icons/go"
-import { Link } from "react-router-dom"
-import { SidebarLink } from "./SidebarLink"
-import {
-  flowMenuItems,
-  VisibleSlug,
-} from "../../../features/PhantomSetupNew/MOCK_DATA"
+import { BsFillPlayCircleFill } from "react-icons/bs"
 import { useSetupContext } from "../../../context/setupContext"
-import { flattenMenu } from "../../../utils"
 
+const Link: React.FunctionComponent<{
+  className?: string
+  to?: string
+  children: React.ReactNode
+}> = ({ to, className: passedStyle = "", children }) => {
+  return (
+    <a href={to} className={passedStyle}>
+      {children}
+    </a>
+  )
+}
 export const Sidebar = () => {
-  const flatMenu = flattenMenu(flowMenuItems)
-
-  const { chosenView } = useSetupContext()
+  const { chosenView, flatMenu } = useSetupContext()
 
   return (
     <aside className="tw-relative tw-bg-redi-light-bg tw-bsis tw-flex tw-border-r tw-border-r-solid tw-border-r-redi-primary-dark/30 ">
       <nav className="tw-mr-0 tw-ml-auto tw-px-4 tw-py-8 tw-w-full tw-max-w-[250px] tw-sticky tw-top-0 tw-self-start ">
-        <Link 
+        <Link
           to="#"
           className="no-ring tw-flex tw-items-center tw-relative tw-text-redi-primary-50 tw-mb-8 tw-group hover:hover:tw-text-redi-primary "
         >
@@ -35,8 +38,8 @@ export const Sidebar = () => {
           {flatMenu.map(item => {
             return (
               <SidebarLink
-                isDisabled={!item.visibleIn.includes(chosenView as VisibleSlug)}
-                variant={item.level >0 ? "subsection" : "section"}
+                isDisabled={!item.visibleIn.includes(chosenView)}
+                variant={item.level > 0 ? "subsection" : "section"}
                 key={item.label}
               >
                 {item.label}

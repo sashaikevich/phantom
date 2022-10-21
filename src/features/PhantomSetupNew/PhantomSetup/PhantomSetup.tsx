@@ -21,7 +21,6 @@ import {
   ViewToggle,
 } from "."
 import { TwoColumns } from "./Layout"
-
 import { useSetupContext } from "../../../context/setupContext"
 
 export const PhantomSetup = () => {
@@ -30,6 +29,7 @@ export const PhantomSetup = () => {
     data,
     viaSlack,
     viaWebhook,
+    viewModes,
     sendOnWeekend,
     updateField,
     isHTTPProxy,
@@ -39,7 +39,7 @@ export const PhantomSetup = () => {
   return (
     <main className="tw-py-8 tw-px-28 tw-max-w-5xl">
       <PhantomHeader />
-      <ViewToggle />
+      <ViewToggle viewModes={viewModes} />
       {chosenView === "json" ? (
         // bonus: syntax highlighting and nesting json
         <Section heading="JSON">

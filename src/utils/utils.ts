@@ -18,7 +18,7 @@ export function uid() {
   )
 }
 
-interface FlatMenuItemType extends Omit<FlowMenuItemType, "subMenuItems"> {
+export interface FlatMenuItemType extends Omit<FlowMenuItemType, "subMenuItems"> {
   id: number
   level: number
   childrenIds?: number[]

@@ -1,10 +1,13 @@
 import React from "react"
 import { useSetupContext } from "../../../../context/setupContext"
-import { Link, useSearchParams } from "react-router-dom"
 import { classNames } from "../../../../utils"
-import { viewModes } from "../../MOCK_DATA"
+import { ViewModeType } from "../../d"
 
-export const ViewToggle = () => {
+interface ViewToggleProps {
+  viewModes: ViewModeType[]
+}
+
+export const ViewToggle = ({ viewModes }: ViewToggleProps) => {
   const { chosenView, setView } = useSetupContext()
 
   return (

@@ -65,7 +65,7 @@ export const InputText = ({
           id={forId}
         />
       )}
-      {helpLink && <HelpLink className="tw-mt-1" {...helpLink} />}
+      {helpLink && <HelpLink className="tw-mt-0" {...helpLink} />}
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React from "react"
 import { classNames } from "../../../utils"
 import { HiOutlineExternalLink } from "react-icons/hi"
 
+// interface SidebarLinkProps extends React.HTMLAttributes<HTMLDivElement> {
 interface SidebarLinkProps {
   children: React.ReactNode
   variant: "section" | "subsection" | "resource"

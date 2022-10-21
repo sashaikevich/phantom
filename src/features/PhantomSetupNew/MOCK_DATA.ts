@@ -1,31 +1,10 @@
 import { string } from "prop-types"
+import { VisibleSlug, ViewModeType } from "../PhantomSetupNew/d"
 
-/* 
-PHANTOM'S VIEW MODES
-*/
-
-export enum VisibleSlug {
-  Quick = "quick",
-  All = "all",
-  JSON = "json",
-}
-
-interface viewModesType {
-  label: string
-  slug: VisibleSlug
-}
-
-// bous: figure out how to do this automatically:
-// export enum ViewModeSlug {
-//   quick = "quick",
-//   full = "all",
-//   json = "json",
-// }
-
-export const viewModes: viewModesType[] = [
-  { label: "Quick Start", slug: VisibleSlug.Quick },
-  { label: "All Settings", slug: VisibleSlug.All },
-  { label: "JSON", slug: VisibleSlug.JSON },
+export const viewModes: ViewModeType[] = [
+  { label: "Quick Setup", slug: "quick" },
+  { label: "All Settings", slug: "all" },
+  { label: "JSON", slug: "json" },
 ]
 
 /*
@@ -201,49 +180,48 @@ export interface FlowMenuItemType {
 }
 
 export const flowMenuItems: FlowMenuItemType[] = [
-
   {
     label: "Search",
-    visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+    visibleIn: ["all", "quick"],
     subMenuItems: [
       {
         label: "Cookie",
-        visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+        visibleIn: ["all", "quick"],
       },
     ],
   },
   {
     label: "Automation",
-    visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+    visibleIn: ["all", "quick"],
     subMenuItems: [
       {
         label: "Outreach account",
-        visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+        visibleIn: ["all", "quick"],
       },
       {
         label: "Outreach limits",
-        visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+        visibleIn: ["all", "quick"],
       },
       {
         label: "Extraction limits",
-        visibleIn: [VisibleSlug.All],
+        visibleIn: ["all"],
       },
       {
         label: "Critical Execution limits",
-        visibleIn: [VisibleSlug.All],
+        visibleIn: ["all"],
       },
       {
         label: "Data management",
-        visibleIn: [VisibleSlug.All],
+        visibleIn: ["all"],
       },
     ],
   },
   {
     label: "Proxies",
-    visibleIn: [VisibleSlug.All],
+    visibleIn: ["all"],
   },
   {
     label: "Notifications",
-    visibleIn: [VisibleSlug.All, VisibleSlug.Quick],
+    visibleIn: ["all", "quick"],
   },
 ]

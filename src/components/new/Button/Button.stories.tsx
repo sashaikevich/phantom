@@ -1,4 +1,3 @@
-import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
 import { Button } from "."
@@ -6,6 +5,9 @@ import { Button } from "."
 export default {
   title: "Components/Buttons",
   component: Button,
+  argTypes: {
+    variant: { control: 'radio' },
+  },
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />
@@ -19,6 +21,8 @@ export const All = () => {
     </div>
   )
 }
+
+<div>oh look some text</div>
 
 export const Primary = Template.bind({})
 Primary.args = {

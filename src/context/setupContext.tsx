@@ -1,21 +1,26 @@
 import React, { createContext, useContext, useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { useImmer } from "use-immer"
+import { VisibleSlug } from "../features/PhantomSetupNew/d"
 import {
   INITIAL_CONFIG,
-  VisibleSlug,
+  viewModes,
+  flowMenuItems
 } from "../features/PhantomSetupNew/MOCK_DATA"
+import { flattenMenu, FlatMenuItemType } from "../utils"
 
 // todo typing is a bit too loose now
 export type updateFieldType = (field: string, value: unknown) => void
 
 interface SetupContextType {
-  chosenView: string | null
+  chosenView: VisibleSlug
   data: typeof INITIAL_CONFIG
   setView: (v: { view: string }) => void
   updateField: (field: string, value: unknown) => void
+  viewModes: typeof viewModes
   isValid: boolean
   setIsValid: React.Dispatch<React.SetStateAction<boolean>>
+  flatMenu: FlatMenuItemType[]
   viaWebhook?: boolean
   viaSlack?: boolean
   sendOnWeekend?: boolean
@@ -38,10 +43,9 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
   const viaSlack = isChannelSelected("via_slack")
   const isPhantomProxy = data["preferredProxy"].value === "phantombuster"
   const isHTTPProxy = data["preferredProxy"].value === "http"
-  const chosenView = view.get("view")!
+  const chosenView = view.get("view") as VisibleSlug
 
-  // update input within a radio option
-  // bonus: create a hook
+  // update input within a radio option (consider using a hook)
   useEffect(() => {
     // ensure that if that radio option is chosen, that the related foldes field receives a value
     if (data["manageFolders"].value === "create") {
@@ -85,15 +89,19 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
     return totalActive > 0
   }
 
+  const flatMenu = flattenMenu(flowMenuItems)
+
   return (
     <SetupContext.Provider
       value={{
         chosenView,
         setView,
         data,
+        viewModes,
         updateField,
         viaWebhook,
         viaSlack,
+        flatMenu,
         setIsValid,
         isValid,
         sendOnWeekend,
