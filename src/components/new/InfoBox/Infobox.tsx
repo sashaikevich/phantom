@@ -4,12 +4,12 @@ import { classNames } from "../../../utils"
 
 interface InfoBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
-  type?: "notice" | "warning"
+  variant?: "notice" | "warning"
 }
 
 export const InfoBox = ({
   children,
-  type = "notice",
+  variant = "notice",
   className: passedStyles,
 }: InfoBoxProps) => {
   const sharedClasses =
@@ -18,7 +18,7 @@ export const InfoBox = ({
   const noticeClasses = "tw-bg-redi-light-bg "
   const warningClasses = "tw-bg-redi-danger-bg "
 
-  const isNotice = type === "notice"
+  const isNotice = variant === "notice"
   return (
     <div
       className={classNames(

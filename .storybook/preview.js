@@ -10,6 +10,14 @@ export const parameters = {
     },
   },
   previewTabs: {
+    // hide the canvas as an option, and replace auto docs with generated mdx
     // canvas: { hidden: true },
+  },
+  docs: {
+    // hide the decorators when previewing the code in docs -> show code
+    source: {
+      type: "dynamic",
+      excludeDecorators: true,
+    },
   },
 }

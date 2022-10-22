@@ -3,11 +3,7 @@ import { useSetupContext } from "../../../../context/setupContext"
 import { classNames } from "../../../../utils"
 import { ViewModeType } from "../../d"
 
-interface ViewToggleProps {
-  viewModes: ViewModeType[]
-}
-
-export const ViewToggle = ({ viewModes }: ViewToggleProps) => {
+export const ViewToggle = ({ viewModes }: {viewModes: ViewModeType[]}) => {
   const { chosenView, setView } = useSetupContext()
 
   return (

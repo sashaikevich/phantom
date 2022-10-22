@@ -5,7 +5,7 @@ import { InfoBox } from "."
 describe("InfoBox", () => {
   it("renders", () => {
     const { queryAllByText } = render(
-      <InfoBox type="notice">Please be advised</InfoBox>
+      <InfoBox variant="notice">Please be advised</InfoBox>
     )
     expect(queryAllByText("Please be advised")).toHaveLength(1)
   })

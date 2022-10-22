@@ -66,7 +66,7 @@ export const PhantomSetup = () => {
           <Section
             heading={`${chosenView === "all" ? "All " : ""}Automation Settings`}
           >
-            <InfoBox type="notice" className="tw-mb-12">
+            <InfoBox variant="notice" className="tw-mb-12">
               You must stay logged into LinkedIn for this flow to run. (You may
               close your browser, but not log out.)
             </InfoBox>

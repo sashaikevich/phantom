@@ -1,13 +1,15 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { ViewToggle } from "."
 import { ViewModeType } from "../../d"
-
+import { decorators } from "../../../../../.storybook/decorators"
 export default {
   title: "Phantom Setup/ViewToggle",
   component: ViewToggle,
-  // decorators: [
-  //   withSetupContext
-  // ]
+  decorators: decorators,
+  parameters: {
+    componentSubtitle:
+      "Allow user to toggle visibility of settings sections by selecting different views.",
+  },
 } as ComponentMeta<typeof ViewToggle>
 
 const storyViews: ViewModeType[] = [
@@ -21,3 +23,7 @@ const Template: ComponentStory<typeof ViewToggle> = args => (
 
 export const Default = Template.bind({})
 Default.args = { viewModes: storyViews }
+
+Default.argTypes = {
+  viewModes: { table: { disable: true } },
+}
