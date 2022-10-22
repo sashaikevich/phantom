@@ -34,18 +34,16 @@ export const InputRange = ({
 }: InputRangeType) => {
   const { updateField, data } = useSetupContext()
 
-  if (mappedName === "sendFrequency") {
-    console.log(data["sendFrequency"].value, max)
-  }
-
   const rangeVal = data[mappedName].value
   // normalize to bounds (important when another field updates min/max of this range)
-  if (rangeVal < min) {
-    updateField(mappedName, min)
-  }
-  if (rangeVal > max) {
-    updateField(mappedName, max)
-  }
+  useEffect(() => {
+    if (rangeVal < min) {
+      updateField(mappedName, min)
+    }
+    if (rangeVal > max) {
+      updateField(mappedName, max)
+    }
+  }, [rangeVal, min, max])
 
   const [isActive, setIsActive] = useState(false)
   const rangeRef = useRef<HTMLInputElement>(null)
@@ -110,9 +108,9 @@ export const InputRange = ({
           type="range"
           min={min}
           max={max}
-          // value={rangeVal || initialVal}
           step={(max - min) / numSteps || undefined}
           ref={rangeRef}
+          // value={data[mappedName].value || min}
           value={data[mappedName].value}
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}

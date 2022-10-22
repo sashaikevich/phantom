@@ -10,9 +10,7 @@ export const InputRadioGroup = ({
   children,
 }: InputRadioGroupProps) => {
   return (
-    <div
-      className={passedStyles}
-    >
+    <div className={passedStyles}>
       {React.Children.map(children, (child, index) => {
         return (
           <>

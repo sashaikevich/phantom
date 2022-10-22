@@ -21,19 +21,19 @@ interface LinkedInFlowInterface {
 
 export const INITIAL_CONFIG: LinkedInFlowInterface = {
   searchTerm: {
-    value: undefined,
+    value: "",
   },
   searchType: {
-    value: undefined,
+    value: "",
   },
   dataColumn: {
-    value: undefined,
+    value: "",
   },
   personalizedMsg: {
-    value: undefined,
+    value: "",
   },
   linkedInCookie: {
-    value: undefined,
+    value: "",
   },
   useSalesNavigator: {
     value: false,
@@ -66,25 +66,25 @@ export const INITIAL_CONFIG: LinkedInFlowInterface = {
     value: "keep",
   },
   keepNFolders: {
-    value: undefined,
+    value: 0,
   },
   preferredProxy: {
     value: "none",
   },
   proxyAddress: {
-    value: undefined,
+    value: "",
   },
   proxyUsername: {
-    value: undefined,
+    value: "",
   },
   proxyPassword: {
-    value: undefined,
+    value: "",
   },
   IPLifespan: {
     value: "static",
   },
   refreshFrequency: {
-    value: undefined,
+    value: 0,
   },
   proxyLocation: {
     value: "France",
@@ -126,10 +126,10 @@ export const INITIAL_CONFIG: LinkedInFlowInterface = {
     value: false,
   },
   slackWebhook: {
-    value: undefined,
+    value: "",
   },
   webhook: {
-    value: undefined,
+    value: "",
   },
 }
 

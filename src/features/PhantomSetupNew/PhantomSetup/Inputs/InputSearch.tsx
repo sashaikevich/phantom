@@ -10,7 +10,7 @@ interface InputSearchProps {
 }
 
 export const InputSearch = ({ mappedName }: InputSearchProps) => {
-  const { data, updateField} = useSetupContext()
+  const { data, updateField } = useSetupContext()
   return (
     <>
       <InputText
@@ -20,7 +20,8 @@ export const InputSearch = ({ mappedName }: InputSearchProps) => {
         placeholder="https://www.linkedin.com/search/results/people/?keywords=..."
       />
 
-      {(data[mappedName].value === "sheet" || data[mappedName].value === "spreadsheet") && (
+      {(data[mappedName].value === "sheet" ||
+        data[mappedName].value === "spreadsheet") && (
         <CalloutBox className="tw-py-1 tw--mt-3 tw-mb-9">
           <div className="tw-flex tw-items-center ">
             <Text>
@@ -34,7 +35,7 @@ export const InputSearch = ({ mappedName }: InputSearchProps) => {
               id="column"
               name="dataColumn"
               value={data["dataColumn"].value}
-              onChange={e=>{
+              onChange={e => {
                 updateField("dataColumn", e.target.value)
               }}
               className="tw-block tw-w-36 tw-rounded-md tw-py-1 tw-ml-2 tw-border-redi-placeholder"

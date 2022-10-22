@@ -5,7 +5,6 @@ import { classNames } from "../../../../utils"
 interface CalloutBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   showFlag?: boolean
-  showConfirmButton?: true
 }
 
 export const CalloutBox = ({

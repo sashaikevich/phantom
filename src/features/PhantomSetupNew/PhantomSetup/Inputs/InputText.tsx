@@ -1,20 +1,18 @@
 import React from "react"
 import {
   Label,
-  LabelSizeType,
   InputFieldText,
   InputFieldTextArea,
 } from "./index"
 import { HelpLink, HelpLinkProps } from "../"
 import { uid, classNames } from "../../../../utils"
-import { updateFieldType } from "../../../../context/setupContext"
 
 interface InputTextProps
   extends React.HTMLAttributes<HTMLTextAreaElement | HTMLInputElement> {
+  mappedName: string
   label?: string
   helpLink?: HelpLinkProps
   multiline?: boolean
-  mappedName: string
 }
 
 interface RequiredInputTextProps extends InputTextProps {

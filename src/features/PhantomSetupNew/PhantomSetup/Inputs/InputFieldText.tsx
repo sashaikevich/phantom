@@ -43,7 +43,7 @@ export const InputFieldText = ({
       )}
       id={id}
       name={mappedName}
-      value={data[mappedName].value}
+      value={data[mappedName].value || ""}
       type="text"
       onChange={e => {
         updateField(mappedName, e.target.value)

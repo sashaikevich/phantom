@@ -39,8 +39,8 @@ export function flattenMenu(menu: FlowMenuItemType[]) {
         flatten(item.subMenuItems, level+1, parentId)
       } else {
         flatMenu.push({ id, level:level, ...item })
-        if (providedParent !== undefined) {
-          flatMenu[providedParent].childrenIds!.push(id)
+        if (flatMenu && providedParent !== undefined) {
+          flatMenu[providedParent].childrenIds?.push(id)
         }
         id++
       }

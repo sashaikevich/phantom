@@ -46,7 +46,6 @@ export const InputRadioOption = ({
             name={forName}
             value={value}
             onChange={e => {
-              console.log(forName)
               updateField(forName!, e.target.value)
             }}
             id={id}
