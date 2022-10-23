@@ -1,34 +1,23 @@
-<!-- todo  -->
-import / use overrideTailwindClasses throughout hte package to fix class clashes 
-
 # Ghostbuster Cadet Evaluation
-This is the proposed roadmap to demo required skills to join team Phantom:
+This is a demo project reworking PhantomBuster's most popular LinkedIn Flow, and presenting it on PB's prefered stack; React-flavoured TypeScript, Tailwind, Storybook, Jest, and Cypress.
 
-## PHASE I - PB components
-Using TS, Tailwind, and Jest, recreate the most popular LinkedIn phantom as individual components, creatings spec and stories files.
+The project makes assumptions about PB's future; the rollout of the store, 3rd Party Phantoms, and the subsequent need for more consistent user interfaces and structure across the site. It's based on those assumptions that the LinkedIn Flow was reimagined, aiming for the midpoint between it's future form as planned by PB, and it's current design.
 
-Didn't copy your classes deliberately to show that I understand how to use tailwind
+A live demo can be found here: todo
 
-#### Bonus:
-- write quick docs
+## Storybook
+Assuming a phased rollout of changes, stories are split into the following organization:
+- *Can Use*,
+- *Deprecated*, 
+- *Experimental* 
 
-## PHASE II - Refactoring UI
-Recreate the most popular LinkedIn phantom with a modified UI.
-Include a new slide range component (will be used to communicate suggested limits).
+Familiarity with Storybook is demonstrated by using documentation via argTypes (*InfoBox*), use of mdx (*Text* story - todo), and context via decorators: (*ViewToggle* story)
 
-To show that I can not only recreate, but also create something new with tailwind, and that I understand your product and how a user interacts with it.
-Not to step on anyone's toes. This is only to show that I can think from the other perspective.
-
-## PHASE III - Live case
-Create a new phantom for scraping leboncoin using components from either phase.
+## Jest
 Mock data fetch scenarios in tests. Deploy app.
 
-To showcase a potential new use-case for the store - scraping leboncoin 
-my understanding of backend
+## Cypress
 
-#### Bonus: 
-- spin up a real TS + Node backend with scraping implementation
-- setup cron tasks to schedule scraping
 
-## PHASE IV - Cleanup
-Wrap up the project by cleaning up all code, and completing some of the bonuses.
+## maybe CI/CD ? 
+todo maybe use gh's actions
