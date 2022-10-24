@@ -9,14 +9,14 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended",
   ],
-  overrides: [{
-    "files": [
-      "**/*.stories.*"
-    ],
-    "rules": {
-      "import/no-anonymous-default-export": "off"
-    }
-  }],
+  overrides: [
+    {
+      files: ["**/*.stories.*"],
+      rules: {
+        "import/no-anonymous-default-export": "off",
+      },
+    },
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",

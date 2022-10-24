@@ -12,8 +12,11 @@ Assuming a phased rollout of changes, stories are split into the following organ
 - *Experimental* 
 
 Familiarity with Storybook is demonstrated by using documentation via argTypes (*InfoBox*), use of mdx (*Text* story - todo), and context via decorators: (*ViewToggle* story)
+todo: mock service worker?
 
 ## Jest
+test in isolation (not dependent on other tests running before it). Tests can be run in isolation / skipped without impacting other tests. Render factory 
+generate coverage report
 Mock data fetch scenarios in tests. Deploy app.
 
 ## Cypress

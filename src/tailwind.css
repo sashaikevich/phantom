@@ -48,7 +48,6 @@
     /* @apply tw-rounded-xl tw-border-brdr; */
   }
 
-  /* todo move card class to shadow config */
   .tw-shadow-card {
     --tw-shadow: 0 8px 20px 0 #73706e14;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),

@@ -62,9 +62,9 @@ module.exports = {
         "heading-s": ["20px", "24px"],
         "heading-m": ["24px", "32px"],
         // redesign sizes
-        "redisize-xs": ["12px", "1.25"],
-        "redisize-s": ["13px", "1.4"],
-        "redisize-ss": ["14px", "1.4"],
+        "redisize-xs": ["13px", "1.25"],
+        "redisize-s": ["14px", "1.4"],
+        "redisize-ss": ["15px", "1.4"],
         "redisize-m": ["16px", "1.4"],
         "redisize-mm": ["18px", "1.4"],
         "redisize-heading-s": ["18px", "1.1"],
