@@ -1,9 +1,7 @@
 import React from "react"
 import {
   Label,
-  LabelSizeType,
   InputFieldText,
-  InputFieldTextArea,
 } from "./index"
 import { HelpLink, HelpLinkProps } from "../HelpLink"
 import { uid, classNames } from "../../../utils"

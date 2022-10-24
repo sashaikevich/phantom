@@ -1,7 +1,7 @@
 import React from "react"
 import { classNames } from "../../../utils"
 import { useSetupContext } from "../../../contexts/setupContext"
-import { PhantomSetupKeys, PhantomSetupValues } from "../d"
+import { PhantomSetupKeys } from "../d"
 
 export interface InputFieldTextProps
   extends React.HTMLAttributes<HTMLInputElement> {

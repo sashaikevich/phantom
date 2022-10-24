@@ -1,5 +1,4 @@
 import React from "react"
-import { classNames } from "../../../utils"
 import { Spirit } from "../../../assets/Spirit"
 
 import { Button } from "../../../components/Button"

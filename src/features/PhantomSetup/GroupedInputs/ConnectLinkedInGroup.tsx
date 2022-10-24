@@ -2,12 +2,12 @@ import React from "react"
 import { InputText } from "../Inputs"
 import { HelpLink } from "../HelpLink"
 
-interface ConnectLinkedInGroup {
+interface ConnectLinkedInGroupType {
   isWitoutPlugin?: boolean
 }
 export const ConnectLinkedInGroup = ({
   isWitoutPlugin = true,
-}: ConnectLinkedInGroup) => {
+}: ConnectLinkedInGroupType) => {
   return (
     <>
       <div className="tw-flex tw-w-full tw-items-end">

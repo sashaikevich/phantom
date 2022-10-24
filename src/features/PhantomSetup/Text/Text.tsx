@@ -1,5 +1,4 @@
 import React from "react"
-import { classNames } from "../../../utils"
 
 type Element = "h1" | "h2" | "h3" | "h4" | "p" | "span"
 

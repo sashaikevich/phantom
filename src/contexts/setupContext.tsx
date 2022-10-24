@@ -7,10 +7,9 @@ import {
 import {
   PhantomSetupType,
   PhantomSetupKeys,
-  PreferredProxyType,
 } from "../features/PhantomSetup/d"
 
-import { useImmer, Updater } from "use-immer"
+import { useImmer } from "use-immer"
 
 interface SetupContextType {
   flatMenu: typeof flatMenu
@@ -47,8 +46,6 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
   function resetSettings() {
     setData(RESET_DATA.current)
   }
-  // RESET_DATA: React.MutableRefObject<PhantomSetupType>
-  // setData: Updater<PhantomSetupType>
 
   return (
     <SetupContext.Provider

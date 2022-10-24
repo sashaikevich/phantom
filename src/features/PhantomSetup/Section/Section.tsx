@@ -1,4 +1,4 @@
-import React, { ReactHTMLElement } from "react"
+import React from "react"
 import { Text } from "../Text"
 import { classNames } from "../../../utils"
 

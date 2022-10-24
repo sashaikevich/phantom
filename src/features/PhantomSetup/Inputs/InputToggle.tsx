@@ -6,13 +6,13 @@ import { useSetupContext } from "../../../contexts/setupContext"
 
 interface InputToggleProps extends React.HTMLAttributes<HTMLInputElement> {
   mappedName: PhantomSetupKeys
-  type?: "default" | "danger"
+  // type?: "default" | "danger"
   label?: string
   forName?: string
 }
 
 export const InputToggle = ({
-  type = "default",
+  // type = "default",
   className: passedStyles = "",
   label,
   forName = uid(),

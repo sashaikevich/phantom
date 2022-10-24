@@ -1,4 +1,4 @@
-import React, { LabelHTMLAttributes } from "react"
+import React from "react"
 import { Text } from "../Text"
 import { classNames } from "../../../utils"
 
@@ -12,7 +12,6 @@ interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
 
 export const Label = ({
   optional,
-  id,
   labelSize = "lg",
   className: passedStyles = "",
   children,

@@ -22,13 +22,9 @@ import {
 import { InfoBox } from "../../../components"
 
 import { useViewContext } from "../../../contexts/viewContext"
-import { useSetupContext } from "../../../contexts/setupContext"
 
 export const LinkedInFlow = () => {
-  const { viewModes, activeView, changeView } = useViewContext()
-
-  const { updateField, data } = useSetupContext()
-
+  const { viewModes, activeView} = useViewContext()
   return (
     <main className="tw-py-8 tw-px-28 tw-max-w-5xl">
       <PhantomHeader />

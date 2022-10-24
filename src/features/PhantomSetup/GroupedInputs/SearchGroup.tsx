@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { InputText } from "../Inputs"
 import { CalloutBox } from "../CalloutBox"
 import { Text } from "../Text"
 
-import { PhantomSetupKeys } from "../d"
 import { useSetupContext } from "../../../contexts/setupContext"
 
 export const SearchGroup = () => {
