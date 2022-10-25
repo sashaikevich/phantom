@@ -74,8 +74,10 @@ module.exports = {
       },
       gridTemplateColumns: {
         // redesign: sidebar full width for large screens
-        sidebar: "minmax(250px, 25%) 1fr",
-        options: "minmax(175px, 235px) 1fr",
+        sidebar: "minmax(225px, 20%) 1fr",
+        "sidebar-xl": "minmax(250px, 25%) 1fr",
+        options: "minmax(150px, 200px) 1fr",
+        "options-xl": "minmax(175px, 235px) 1fr",
       },
       dropShadow: {
         "floating-blue": [

@@ -20,7 +20,7 @@ export const Text = ({
 
   switch (variant) {
     case "label-lg": {
-      classes = "tw-text-redi-dark/90 tw-text-redisize-mm tw-font-semibold"
+      classes = "tw-text-redi-dark/90 tw-text-redesize-m lg:tw-text-redisize-mm tw-font-semibold"
       break
     }
     case "label-md": {
@@ -32,7 +32,7 @@ export const Text = ({
       break
     }
     case "section-title": {
-      classes = " tw-font-semibold tw-text-2xl tw-text-redi-primary-dark"
+      classes = " tw-font-semibold tw-text-xl lg:tw-text-2xl tw-text-redi-primary-dark"
       break
     }
     case "help": {

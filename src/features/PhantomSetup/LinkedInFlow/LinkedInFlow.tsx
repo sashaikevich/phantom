@@ -4,8 +4,6 @@ import { ViewToggle } from "../ViewToggle"
 
 import { Section } from "../Section"
 
-import { LaunchControls } from "../LaunchControls"
-
 import {
   SearchGroup,
   LinkedInMsgGroup,
@@ -26,7 +24,7 @@ import { useViewContext } from "../../../contexts/viewContext"
 export const LinkedInFlow = () => {
   const { viewModes, activeView} = useViewContext()
   return (
-    <main className="tw-py-8 tw-px-28 tw-max-w-5xl">
+    <>
       <PhantomHeader />
       <ViewToggle viewModes={viewModes} />
 
@@ -76,7 +74,6 @@ export const LinkedInFlow = () => {
           </Section>
         </>
       )}
-      <LaunchControls />
-    </main>
+    </>
   )
 }

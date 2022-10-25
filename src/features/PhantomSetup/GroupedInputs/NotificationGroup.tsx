@@ -1,5 +1,4 @@
 import React from "react"
-
 import { Text } from "../Text"
 import { CalloutBox } from "../CalloutBox"
 import { InputToggle, InputTextInline } from "../Inputs"
@@ -120,23 +119,21 @@ export const NotificationGroup = () => {
         </tbody>
       </table>
 
-      {viaSlack && (
-        <CalloutBox className="tw-w-full tw-my-2">
-          <Text>
-            Remember to enter your Slack webhook to receive notifications via
-            Slack
-          </Text>
+      <CalloutBox isVisible={viaSlack} className="tw-w-full tw-my-2">
+        <Text>
+          Remember to enter your Slack webhook to receive notifications via
+          Slack
+        </Text>
 
-          <InputTextInline
-            label="Slack webhook:"
-            mappedName="slackWebhook"
-            placeholder="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
-            helpLink={{ text: "How to connect with Slack" }}
-          />
-        </CalloutBox>
-      )}
-      {viaWebhook && (
-        <CalloutBox showFlag={true} className="tw-w-full tw-my-2">
+        <InputTextInline
+          label="Slack webhook:"
+          mappedName="slackWebhook"
+          placeholder="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+          helpLink={{ text: "How to connect with Slack" }}
+        />
+      </CalloutBox>
+      
+        <CalloutBox isVisible={viaWebhook} showFlag={true} className="tw-w-full tw-my-2">
           <Text>
             Remember to enter your custom webhook to have it receive
             notifications
@@ -148,7 +145,6 @@ export const NotificationGroup = () => {
             helpLink={{ text: "How to use custom webhooks" }}
           />
         </CalloutBox>
-      )}
     </>
   )
 }

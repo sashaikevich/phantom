@@ -9,27 +9,16 @@ import { useViewContext } from "../../contexts/viewContext"
 
 import { Link } from "react-router-dom"
 
-// const Link: React.FunctionComponent<{
-//   className?: string
-//   to?: string
-//   children: React.ReactNode
-// }> = ({ to, className: passedStyle = "", children }) => {
-//   return (
-//     <a href={to} className={passedStyle}>
-//       {children}
-//     </a>
-//   )
-// }
-
 export const Sidebar = () => {
   const { flatMenu } = useSetupContext()
   const { activeView } = useViewContext()
 
   return (
     <aside className="tw-relative tw-bg-redi-light-bg tw-bsis tw-flex tw-border-r tw-border-r-solid tw-border-r-redi-primary-dark/30 ">
-      <nav className="tw-mr-0 tw-ml-auto tw-px-4 tw-py-8 tw-w-full tw-max-w-[250px] tw-sticky tw-top-0 tw-self-start ">
+      <nav className="tw-mr-0 tw-ml-auto tw-px-4 tw-py-8 tw-w-full tw-max-w-[210px] xl:tw-max-w-[250px] tw-sticky tw-top-0 tw-self-start ">
         <Link
           to="#"
+          onClick={e => e.preventDefault()}
           className="no-ring tw-flex tw-items-center tw-relative tw-text-redi-primary-50 tw-mb-8 tw-group hover:hover:tw-text-redi-primary "
         >
           <BiLeftArrowAlt className="tw-fill-redi-primary-50 tw-absolute tw-right-full tw-w-5 tw-h-5 group-hover:tw-fill-redi-primary" />

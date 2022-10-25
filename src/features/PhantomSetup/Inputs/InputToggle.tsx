@@ -48,10 +48,10 @@ export const InputToggle = ({
           <div
             className={classNames(
               size,
-              "tw-relative tw-pointer-events-none tw-bg-white  tw-rounded-full tw-border tw-border-redi-borders peer-checked:tw-bg-redi-primary peer-checked:tw-border-redi-primary  peer-checked:tw-border-redi-primary-dark/20"
+              "tw-relative tw-pointer-events-none tw-bg-white  tw-rounded-full tw-border tw-border-redi-borders peer-checked:tw-bg-redi-primary peer-checked:tw-border-redi-primary  peer-checked:tw-border-redi-primary-dark/20 tw-transition tw-ease-in-out"
             )}
           ></div>
-          <span className="tw-absolute tw-pointer-events-none tw-h-[14px] tw-w-[14px] tw-block tw-bg-redi-borders tw-border-2 tw-border-white tw-rounded-full  tw-left-[2px] tw-shadow-control-grey peer-checked:tw-shadow-control-blue peer-checked:tw-right-[2px] peer-checked:tw-left-auto peer-checked:tw-bg-redi-primary  "></span>
+          <span className="tw-absolute tw-pointer-events-none tw-h-[14px] tw-w-[14px] tw-block tw-bg-redi-borders tw-border-2 tw-border-white tw-rounded-full  tw-left-[2px] tw-shadow-control-grey peer-checked:tw-shadow-control-blue peer-checked:tw-right-[2px] peer-checked:tw-left-auto peer-checked:tw-bg-redi-primary tw-transition-all tw-ease-in-out "></span>
         </div>
         {label && (
           <Label className="tw-ml-4" labelSize="sm" htmlFor={forName}>

@@ -64,7 +64,7 @@ export const InputRadioOption = ({
               warning
                 ? "peer-checked:tw-border-redi-danger"
                 : "peer-checked:tw-border-redi-primary"
-            } peer-checked:tw-opacity-100`}
+            } peer-checked:tw-opacity-100 tw-transition-all tw-ease-in-out`}
           >
             <span
               className={`tw-rounded-full ${

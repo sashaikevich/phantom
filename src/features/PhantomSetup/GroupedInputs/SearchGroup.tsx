@@ -17,8 +17,7 @@ export const SearchGroup = () => {
         placeholder="https://www.linkedin.com/search/results/people/?keywords=..."
       />
 
-      {isSpreadsheet && (
-        <CalloutBox className="tw-py-1 tw--mt-3 tw-mb-9">
+        <CalloutBox isVisible={isSpreadsheet} className="tw-py-1 tw--mt-3 tw-mb-9">
           <div className="tw-flex tw-items-center ">
             <Text>
               Spreadsheet detected; Please confirm the
@@ -42,7 +41,6 @@ export const SearchGroup = () => {
             </select>
           </div>
         </CalloutBox>
-      )}
     </>
   )
 }

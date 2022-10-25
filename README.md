@@ -5,22 +5,34 @@ The project makes assumptions about PB's future; the rollout of the store, 3rd P
 
 A live demo can be found here: todo
 
-## Storybook
-Assuming a phased rollout of changes, stories are split into the following organization:
-- *Can Use*,
-- *Deprecated*, 
-- *Experimental* 
+## Summary
+The design is opinionated. The components include maximal layout styles, trading customization for speed of setup. Individual form sections are grouped together and can be easily added to the page with no setup. Their inputs are already mapped to the appropriate 
+
+### Tailwind
+But, building blocks and overrides have been included strategically.
+
+Custom classes added into appropriate base/component/utility layers.
+
+Familiarity with Tailwind is demostrated by extending shadow and font size settings. By setting up custom variant functions (for child selectors, which do not come natively in TW, unlike peer and group.). And, by including class override plagin (to preserve the order of classes added)
+
+### Storybook
+Assuming a phased rollout of changes, stories are split into the following organization: *Can Use*, *Deprecated*, *Experimental* 
 
 Familiarity with Storybook is demonstrated by using documentation via argTypes (*InfoBox*), use of mdx (*Text* story - todo), and context via decorators: (*ViewToggle* story)
-todo: mock service worker?
 
-## Jest
+### TypeScript 
+The app is strictly typed. Project scenario assumes JSON fields provided by back-end team for front-end to implement. 
+
+The object's keys and values are typed and added to the library of types. So, whenever a new Phantom/Flow needs to be created, that universal type can be extended. The Fields and Keys are associated with each other using a generic (This takes advantage of intellisense completion - a really nice feature!). Inferred types are preferred.
+
+
+### Jest
 test in isolation (not dependent on other tests running before it). Tests can be run in isolation / skipped without impacting other tests. Render factory 
 generate coverage report
 Mock data fetch scenarios in tests. Deploy app.
 
-## Cypress
+### Cypress
 
 
-## maybe CI/CD ? 
+### maybe CI/CD ? 
 todo maybe use gh's actions
