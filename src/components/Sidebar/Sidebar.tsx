@@ -1,6 +1,6 @@
 import React from "react"
 import { SidebarLink } from "./SidebarLink"
-import { BiLeftArrowAlt } from "react-icons/bi"
+import { BiLeftArrowAlt, BiSupport } from "react-icons/bi"
 import { IoDocument } from "react-icons/io5"
 import { GoCode } from "react-icons/go"
 import { BsFillPlayCircleFill } from "react-icons/bs"
@@ -19,7 +19,7 @@ export const Sidebar = () => {
         <Link
           to="#"
           onClick={e => e.preventDefault()}
-          className="no-ring tw-flex tw-items-center tw-relative tw-text-redi-primary-50 tw-mb-8 tw-group hover:hover:tw-text-redi-primary "
+          className="no-ring tw-flex tw-items-center tw-relative tw-text-redi-primary-50 tw-mb-8 tw-group hover:hover:tw-text-redi-primary"
         >
           <BiLeftArrowAlt className="tw-fill-redi-primary-50 tw-absolute tw-right-full tw-w-5 tw-h-5 group-hover:tw-fill-redi-primary" />
           back
@@ -56,6 +56,10 @@ export const Sidebar = () => {
         <SidebarLink variant="resource">
           <GoCode className="tw-mr-3" />
           API dics
+        </SidebarLink>
+        <SidebarLink variant="resource">
+          <BiSupport className="tw-mr-3" />
+          Contact Support
         </SidebarLink>
       </nav>
     </aside>

@@ -31,9 +31,15 @@ export const CalloutBox = ({
           <div className="">{children}</div>
           {showFlag && (
             <motion.div
-              initial={{ opacity: 0, marginRight: 30 }}
+              initial={{ opacity: 0, marginRight: 60 }}
               animate={{ opacity: 1, marginRight: 16 }}
-              transition={{ delay: 0.2, duration: 0.15, ease: "circIn" }}
+              transition={{
+                delay: 0.2,
+                duration: 0.15,
+                type: "spring",
+                stiffness: 700,
+                damping: 30,
+              }}
               className="flag tw-absolute tw-right-full tw-top-1/2  tw-translate-y-[-50%] tw-mr-4 tw-drop-shadow-floating-blue"
             >
               <MdLabel className="tw-fill-redi-primary tw-w-5 tw-h-5 " />

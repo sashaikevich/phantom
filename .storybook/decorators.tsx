@@ -2,12 +2,17 @@ import { SetupProvider } from "../src/contexts/setupContext"
 import { ViewProvider } from "../src/contexts/viewContext"
 import { DecoratorFn } from "@storybook/react"
 import { withRouter } from "storybook-addon-react-router-v6"
+import { createContext } from "react"
 export { withRouter } from "storybook-addon-react-router-v6"
 
-export const withSetupContext: DecoratorFn = Story => {
+export const withSetupContext: DecoratorFn = (Story, context) => {
+  console.log(context)
+  const FakeContext = createContext(null)
   return (
     <SetupProvider>
-      <Story />
+      <FakeContext.Provider value={}>
+        <Story />
+      </FakeContext.Provider>
     </SetupProvider>
   )
 }
@@ -32,4 +37,9 @@ export const withWrapAndLabel: DecoratorFn = (Story, context) => {
   }
 }
 
-export const decorators = [withWrapAndLabel, withSetupContext, withViewContext, withRouter]
+export const decorators = [
+  withWrapAndLabel,
+  withSetupContext,
+  withViewContext,
+  withRouter,
+]

@@ -19,7 +19,7 @@ export const ConnectLinkedInGroup = ({
             <a
               href="#"
               onClick={e => e.preventDefault()}
-              className="tw-block tw-w-full tw-bg-redi-light-bg tw-rounded-xl tw-text-redi-primary hover:tw-text-redi-primary hover:tw-bg-redi-primary/10 tw-border tw-border-redi-primary tw-text-center tw-text-redisize-m xl:tw-text-redisize-mm tw-font-semibold tw-pb-2 xl:tw-pb-1.5 tw-pt-2 tw-whitespace-nowrap tw-px-5"
+              className="tw-block tw-w-full tw-bg-redi-light-bg tw-rounded-xl tw-text-redi-primary hover:tw-text-redi-primary hover:tw-bg-redi-primary/10 tw-border tw-border-redi-primary tw-text-center tw-text-redisize-m xl:tw-text-redisize-mm tw-font-semibold tw-pb-2  tw-pt-2 tw-whitespace-nowrap tw-px-5"
             >
               Auto-connect with{" "}
               <span className="tw-hidden xl:tw-inline">our browser </span>

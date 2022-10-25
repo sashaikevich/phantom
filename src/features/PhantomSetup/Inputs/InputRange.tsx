@@ -3,7 +3,6 @@ import { classNames } from "../../../utils"
 import { Label } from "./"
 import { PhantomSetupKeys } from "../d"
 import { useSetupContext } from "../../../contexts/setupContext"
-
 interface InputRangeType {
   min: number
   max: number
@@ -122,31 +121,31 @@ export const InputRange = ({
           }}
           className="no-rding tw-peer"
         />
-        {showTooltip && (
-          <div
-            ref={tooltipRef}
-            className={classNames(
-              isActive ? "tw-opacity-100" : "tw-opacity-0",
-              warning ? "tw-bg-redi-danger-bg" : "tw-bg-redi-light-bg",
-              "tw-rounded-md tw-pointer-events-none tw-shadow-xl tw-text-center tw-absolute tw-px-3 tw-py-1 tw-bottom-full tw-mb-1 tw-translate-x-[-50%]"
-            )}
-          >
-            <span
+          {showTooltip && (
+            <div
+              ref={tooltipRef}
               className={classNames(
+                isActive ? "tw-opacity-100 tw-scale-100" : "tw-opacity-0 tw-scale-75",
                 warning ? "tw-bg-redi-danger-bg" : "tw-bg-redi-light-bg",
-                "tw-w-2 tw-h-2 tw-block tw-top-full tw-absolute tw-rotate-45 tw--mt-1 tw-left-[50%] tw-translate-x-[-50%]"
-              )}
-            ></span>
-            <span
-              className={classNames(
-                warning ? "tw-text-redi-danger" : "tw-text-redi-primary",
-                "tw-font-semibold"
+                "tw-rounded-md tw-pointer-events-none tw-shadow-xl tw-text-center tw-absolute tw-px-3 tw-py-1 tw-bottom-full tw-mb-1 tw-translate-x-[-50%] tw-transition tw-origin-bottom"
               )}
             >
-              {tooltipOverride(rangeVal)}
-            </span>
-          </div>
-        )}
+              <span
+                className={classNames(
+                  warning ? "tw-bg-redi-danger-bg" : "tw-bg-redi-light-bg",
+                  "tw-w-2 tw-h-2 tw-block tw-top-full tw-absolute tw-rotate-45 tw--mt-1 tw-left-[50%] tw-translate-x-[-50%]"
+                )}
+              ></span>
+              <span
+                className={classNames(
+                  warning ? "tw-text-redi-danger" : "tw-text-redi-primary",
+                  "tw-font-semibold"
+                )}
+              >
+                {tooltipOverride(rangeVal)}
+              </span>
+            </div>
+          )}
       </div>
 
       {showLabels && (

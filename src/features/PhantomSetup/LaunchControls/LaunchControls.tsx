@@ -20,7 +20,7 @@ export const LaunchControls = () => {
         type="button"
         onClick={() => {
           setTimeout(() => {
-            setIsValid(true)
+            setIsValid(prev => !prev)
           }, 400)
         }}
         defaultChecked={true}

@@ -111,6 +111,16 @@ module.exports = {
           "0 8px 20px rgba(240, 45, 90, 0.2)",
         ],
       },
+      keyframes: {
+        wave: {
+          "0%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-2px)" },
+          "100%": { transform: "translateY(0px)" },
+        },
+      },
+      animation: {
+        waving: "wave 150ms infinite",
+      },
     },
     container: {
       padding: "1rem",
