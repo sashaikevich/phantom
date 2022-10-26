@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from "framer-motion"
 
 interface CalloutBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
-  showFlag?: boolean
   isVisible?: boolean
+  showFlag?: boolean
 }
 
 export const CalloutBox = ({
   children,
   showFlag = true,
   className: passedStyles = "",
-  isVisible = false,
+  isVisible = true,
 }: CalloutBoxProps) => {
   return (
     <AnimatePresence initial={false}>

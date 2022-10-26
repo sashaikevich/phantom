@@ -53,7 +53,10 @@ export const ProxyGroup = () => {
       </InputRadioGroup>
 
       {isHTTPProxy && (
-        <CalloutBox showFlag={false} className="tw-w-full">
+        <CalloutBox
+          showFlag={false}
+          className="tw-w-full"
+        >
           <InputTextInline
             label="Address:"
             placeholder="proxy.company.com:8080"
@@ -64,7 +67,10 @@ export const ProxyGroup = () => {
         </CalloutBox>
       )}
       {isPhantomProxy && (
-        <CalloutBox showFlag={false} className="tw-w-full tw-pl-6">
+        <CalloutBox
+          showFlag={false}
+          className="tw-w-full tw-pl-6"
+        >
           <Label labelSize="md">Address:</Label>
           <InputRadioGroup mappedName="IPLifespan" className="tw-ml-10 tw-mb-3">
             <InputRadioOption value={IPLifespanType.Static}>
