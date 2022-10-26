@@ -5,6 +5,7 @@ This is a demo project reworking PhantomBuster's most popular LinkedIn Flow, and
 The project makes assumptions about PB's future; the rollout of the store, 3rd Party Phantoms, and the subsequent need for more consistent user interfaces and structure across the site. It's based on those assumptions that the LinkedIn Flow was reimagined, aiming for the midpoint between it's future form as planned by PB, and it's current design.
 
 A live demo can be found here: [https://sashaikevich.github.io/phantom/](https://sashaikevich.github.io/phantom/)
+And a video walkthrough of the project here: [https://youtu.be/wOv9Fr9Z15g](https://youtu.be/wOv9Fr9Z15g)
 
 ## Summary
 
