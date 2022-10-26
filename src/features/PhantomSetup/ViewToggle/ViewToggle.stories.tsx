@@ -45,7 +45,7 @@ Long.args = {
 Long.parameters = {
   docs: {
     storyDescription:
-      "Settings Page should be proived an array of view options (comprised of predefined options for consistency across the platform), and the active view is pulled from context. That context updates the sidebar and sections/subsections.",
+      "Settings Page should be provided an array of view options (comprised of predefined options for consistency across the platform), and the active view is pulled from context. That context updates the sidebar and sections/subsections.",
   },
 }
 

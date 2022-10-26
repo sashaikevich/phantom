@@ -2,7 +2,7 @@ import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { withWrapAndLabel } from "../../../.storybook/decorators"
 
-import { InfoBox } from "./InfoBox"
+import { InfoBox, InfoBoxProps } from "./InfoBox"
 
 export default {
   title: "Components/InfoBox",

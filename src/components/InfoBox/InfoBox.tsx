@@ -2,9 +2,10 @@ import React from "react"
 import { TiWarningOutline, TiWarning } from "react-icons/ti"
 import { classNames } from "../../utils"
 
-interface InfoBoxProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface InfoBoxProps {
   children: React.ReactNode
   variant?: "notice" | "warning"
+  className?: string
 }
 
 export const InfoBox = ({
@@ -21,6 +22,7 @@ export const InfoBox = ({
   const isNotice = variant === "notice"
   return (
     <div
+      data-testid="warning-variant"
       className={classNames(
         passedStyles,
         sharedClasses,
@@ -47,7 +49,8 @@ export const InfoBox = ({
         ) : (
           <>
             <span className="tw-uppercase tw-font-bold">
-              {isNotice ? "Note: " : "Warning: "}</span>
+              {isNotice ? "Note: " : "Warning: "}
+            </span>
             <span className="tw-italic tw-font-medium">{children}</span>
           </>
         )}

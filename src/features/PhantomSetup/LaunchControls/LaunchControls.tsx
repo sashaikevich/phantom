@@ -15,6 +15,7 @@ export const LaunchControls = () => {
         className="tw-mr-auto"
         onClick={() => {
           setIsLaunched(false)
+          setIsValid(false)
           resetSettings()
         }}
       >
