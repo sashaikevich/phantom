@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/phantom/static/css/main.eee7da01.css",
+    "main.js": "/phantom/static/js/main.5320c7e9.js",
+    "static/js/787.ee155958.chunk.js": "/phantom/static/js/787.ee155958.chunk.js",
+    "static/media/Qanelas-Bold.otf": "/phantom/static/media/Qanelas-Bold.40cd99934317a5a45ffa.otf",
+    "static/media/Qanelas-SemiBold.otf": "/phantom/static/media/Qanelas-SemiBold.d39215e2041068dde127.otf",
+    "static/media/Qanelas-Medium.otf": "/phantom/static/media/Qanelas-Medium.bfedc288050ce7d1fdfe.otf",
+    "static/media/Qanelas-Regular.otf": "/phantom/static/media/Qanelas-Regular.072169b80053fe24e1f0.otf",
+    "index.html": "/phantom/index.html",
+    "main.eee7da01.css.map": "/phantom/static/css/main.eee7da01.css.map",
+    "main.5320c7e9.js.map": "/phantom/static/js/main.5320c7e9.js.map",
+    "787.ee155958.chunk.js.map": "/phantom/static/js/787.ee155958.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eee7da01.css",
+    "static/js/main.5320c7e9.js"
+  ]
+}
