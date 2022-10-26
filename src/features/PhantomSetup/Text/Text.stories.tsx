@@ -1,4 +1,3 @@
-// TODO switch to mdx?
 import React, { Component } from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { Text } from "."

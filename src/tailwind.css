@@ -76,7 +76,6 @@
   }
 }
 
-/* todo undo focus after click */
 @layer base {
   .redesign *:focus {
     @apply tw-ring tw-outline-0 tw-ring-redi-primary/30;

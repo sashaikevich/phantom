@@ -24,6 +24,8 @@ Assuming a phased rollout of changes, stories are split into the following organ
 
 Familiarity with Storybook is demonstrated by using documentation via argTypes and context via decorators: (_LaunchButton_ story)
 
+todo: write an intro page
+
 ### TypeScript
 
 The app is strictly typed. Project scenario assumes JSON fields provided by back-end team for front-end to implement.
@@ -31,12 +33,10 @@ The app is strictly typed. Project scenario assumes JSON fields provided by back
 The object's keys and values are typed and added to the library of types. So, whenever a new Phantom/Flow needs to be created, that universal type can be extended. The Fields and Keys are associated with each other using a generic (This takes advantage of intellisense completion - a really nice feature!). Inferred types are preferred.
 
 ### Jest
-Tests are done directly on storybook's variations, using stories as test scenarios. 
+
+Example test directly on stories, to demostrate best practice / minimal divergence.
+
 todo: add coverage
 todo: consider mocking something to wow the g's
-
-### Cypress
-
-
-
+todo: ### Cypress
 todo: maybe do a CI/CD deploy with GH's actions?
