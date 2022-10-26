@@ -55,7 +55,7 @@ export const LaunchButton = ({
                 className="xtw--mt-1.5 tw-relative tw-ml-2.5"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ type: "spring", stiffness: 700, damping: 30 }}
               >
                 <motion.svg
@@ -89,7 +89,7 @@ export const LaunchButton = ({
                     />
                   </g>
                   <path
-                    className="tw-opacity-0 group-hover:tw-opacity-100"
+                    className="tw-opacity-0 group-hover:tw-opacity-100 tw-transition"
                     id="mouth"
                     fill="#231f20"
                     d="M8.07,6.55c0,.58-.47,.87-1.04,.87s-1.04-.3-1.04-.87,.47-.18,1.04-.18,1.04-.39,1.04,.18Z"
