@@ -14,5 +14,5 @@ export default {
   decorators: decorators,
 } as ComponentMeta<typeof SearchGroup>
 
-const Template = () => <SearchGroup />
+const Template: ComponentStory<typeof SearchGroup> = () => <SearchGroup />
 export const Base = Template.bind({})

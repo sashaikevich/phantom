@@ -31,13 +31,12 @@ The app is strictly typed. Project scenario assumes JSON fields provided by back
 The object's keys and values are typed and added to the library of types. So, whenever a new Phantom/Flow needs to be created, that universal type can be extended. The Fields and Keys are associated with each other using a generic (This takes advantage of intellisense completion - a really nice feature!). Inferred types are preferred.
 
 ### Jest
-
-test in isolation (not dependent on other tests running before it). Tests can be run in isolation / skipped without impacting other tests. Render factory
-generate coverage report
-Mock data fetch scenarios in tests. Deploy app.
+Tests are done directly on storybook's variations, using stories as test scenarios. 
+todo: add coverage
+todo: consider mocking something to wow the g's
 
 ### Cypress
 
-### maybe CI/CD ?
 
-todo maybe use gh's actions
+
+todo: maybe do a CI/CD deploy with GH's actions?
