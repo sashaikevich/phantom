@@ -9,12 +9,17 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ["Components", "Phantom Setup", "Experimental", "Depecated"],
+    },
+  },
   previewTabs: {
     // hide the canvas as an option, and replace auto docs with generated mdx
-    // canvas: { hidden: true },
+    canvas: { hidden: true },
   },
   docs: {
-    // hide the decorators when previewing the code in docs -> show code
+    // hide the decorators' code in code previews, when viewing the story in docs
     source: {
       type: "dynamic",
       excludeDecorators: true,

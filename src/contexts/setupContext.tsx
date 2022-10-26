@@ -23,7 +23,7 @@ interface SetupContextType {
   resetSettings: () => void
 }
 
-const SetupContext = createContext<SetupContextType>({} as SetupContextType)
+export const SetupContext = createContext<SetupContextType>({} as SetupContextType)
 
 interface SetupContextProviderProps {
   children: React.ReactNode

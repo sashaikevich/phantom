@@ -20,11 +20,13 @@ export const Text = ({
 
   switch (variant) {
     case "label-lg": {
-      classes = "tw-text-redi-dark/90 tw-text-redesize-m lg:tw-text-redisize-mm tw-font-semibold"
+      classes =
+        "tw-text-redi-dark/90 tw-text-redesize-m lg:tw-text-redisize-mm tw-font-semibold"
       break
     }
     case "label-md": {
-      classes = "tw-text-redi-dark/80 tw-text-redisize-m tw-font-semibold tw-mt-[1px]"
+      classes =
+        "tw-text-redi-dark/80 tw-text-redisize-m tw-font-semibold tw-mt-[1px]"
       break
     }
     case "label-sm": {
@@ -32,11 +34,12 @@ export const Text = ({
       break
     }
     case "section-title": {
-      classes = " tw-font-semibold tw-text-xl lg:tw-text-2xl tw-text-redi-primary-dark"
+      classes =
+        " tw-font-semibold tw-text-xl lg:tw-text-2xl tw-text-redi-primary-dark"
       break
     }
     case "help": {
-      classes = " tw-font-semibold tw-text-redisize-xs"
+      classes = " tw-font-semibold tw-text-redisize-xs  tw-text-redi-primary-50"
       break
     }
     default: {

@@ -1,21 +1,36 @@
-import { SetupProvider } from "../src/contexts/setupContext"
+import {
+  SetupProvider,
+  SetupContext,
+  useSetupContext,
+} from "../src/contexts/setupContext"
 import { ViewProvider } from "../src/contexts/viewContext"
 import { DecoratorFn } from "@storybook/react"
 import { withRouter } from "storybook-addon-react-router-v6"
-import { createContext } from "react"
 export { withRouter } from "storybook-addon-react-router-v6"
 
 export const withSetupContext: DecoratorFn = (Story, context) => {
-  console.log(context)
-  const FakeContext = createContext(null)
   return (
     <SetupProvider>
-      <FakeContext.Provider value={}>
-        <Story />
-      </FakeContext.Provider>
+      <Story />
     </SetupProvider>
   )
 }
+
+export const withFakeContext: DecoratorFn = (Story, context) => {
+  const value = useSetupContext()
+
+  return (
+    <SetupContext.Provider
+      value={{
+        ...value,
+        ...context.argTypes.overrides,
+      }}
+    >
+      <Story />
+    </SetupContext.Provider>
+  )
+}
+
 export const withViewContext: DecoratorFn = Story => {
   return (
     <ViewProvider>

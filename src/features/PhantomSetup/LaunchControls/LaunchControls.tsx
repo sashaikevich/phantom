@@ -1,6 +1,6 @@
 import React from "react"
 import { Button } from "../../../components"
-import { LaunchButton } from "."
+import { LaunchButton } from "./LaunchButton"
 import { useSetupContext } from "../../../contexts/setupContext"
 
 export const LaunchControls = () => {

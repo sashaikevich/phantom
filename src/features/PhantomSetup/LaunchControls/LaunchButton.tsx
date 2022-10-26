@@ -35,7 +35,7 @@ export const LaunchButton = ({
     yoyo: Infinity,
   }
   return (
-    <div className="tw-relative">
+    <div className="tw-relative tw-inline-block">
       <button
         disabled={disabled}
         className={classNames(
@@ -49,12 +49,13 @@ export const LaunchButton = ({
       >
         <span className="tw-inline-flex tw-items-center ">
           {children || "Launch"}
-          <AnimatePresence initial={false}>
-            {isValid && (
+          <AnimatePresence>
+            {!disabled && isValid && (
               <motion.span
                 className="xtw--mt-1.5 tw-relative tw-ml-2.5"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
                 transition={{ type: "spring", stiffness: 700, damping: 30 }}
               >
                 <motion.svg
@@ -67,10 +68,7 @@ export const LaunchButton = ({
                     fill="#fff"
                     d="M7.06,0h0s-.03,0-.04,0c-.01,0-.03,0-.04,0h0C3.94,.05,1.48,2.53,1.48,5.58v6.41c0,.51,.24,.94,.79,1.13,.54,.19,.83,.37,1.1,.69s.57,.65,.97,.68c.4,.04,.62-.23,1.13-.19,.51,.04,.91,.53,1.55,.53s1.05-.48,1.55-.53c.51-.04,.72,.22,1.13,.19,.4-.04,.69-.36,.97-.68s.56-.51,1.1-.69c.54-.19,.79-.62,.79-1.13V5.58C12.56,2.53,10.11,.05,7.06,0Z"
                   />
-                  <g
-                    id="arms"
-                    className="group-hover:tw-animate-waving"
-                  >
+                  <g id="arms" className="group-hover:tw-animate-waving">
                     <path
                       fill="#fff"
                       d="M.26,8.97c-.16-.16-.26-.37-.26-.61,0-.47,.38-.85,.85-.85H1.89l-.08,2.51s-1.26-.76-1.56-1.05Z"
@@ -91,7 +89,7 @@ export const LaunchButton = ({
                     />
                   </g>
                   <path
-                  className="tw-opacity-0 group-hover:tw-opacity-100"
+                    className="tw-opacity-0 group-hover:tw-opacity-100"
                     id="mouth"
                     fill="#231f20"
                     d="M8.07,6.55c0,.58-.47,.87-1.04,.87s-1.04-.3-1.04-.87,.47-.18,1.04-.18,1.04-.39,1.04,.18Z"
@@ -120,7 +118,7 @@ export const LaunchButton = ({
       </button>
 
       <motion.span
-        animate={{ opacity: isValid ? 1 : 0 }}
+        animate={{ opacity: !disabled && isValid ? 1 : 0 }}
         className="shadow tw-absolute tw-inset-0 -tw-z-10 tw-drop-shadow-floating-blue tw-bg-white tw-rounded-full"
       ></motion.span>
     </div>

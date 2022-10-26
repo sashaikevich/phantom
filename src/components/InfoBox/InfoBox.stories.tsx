@@ -2,24 +2,26 @@ import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { withWrapAndLabel } from "../../../.storybook/decorators"
 
-import { InfoBox } from "."
+import { InfoBox } from "./InfoBox"
 
 export default {
   title: "Components/InfoBox",
   component: InfoBox,
+  parameters: {
+    componentSubtitle:
+      "Remind or warn users of important things by calling attention to them.",
+  },
   argTypes: {
     children: {
-      description: "Component accepts a string, or element(s).",
+      description: "Provide a string, or element(s).",
       control: "text",
     },
     variant: {
       options: ["notice", "warning"],
-      control: "radio",
+      description:
+        "Notice/Warning sevarity is communicated with color and icon style",
+      control: { type: "radio" },
     },
-  },
-  parameters: {
-    componentSubtitle:
-      "Remind or warn users of important things by calling attention to them.",
   },
   decorators: [withWrapAndLabel],
 } as ComponentMeta<typeof InfoBox>
@@ -33,26 +35,18 @@ Notice.args = {
 }
 
 export const Warning = Template.bind({})
+Warning.parameters = {
+  docs: {
+    storyDescription:
+      "To callout information with more dangerous consequences a warning style is recommended",
+  },
+}
 Warning.args = {
   children: "A more critical warning",
   variant: "warning",
 }
 
 export const WarningCustom = Template.bind({})
-WarningCustom.storyName = "Non-string children"
-WarningCustom.args = {
-  children: (
-    <p>
-      Child elements like{" "}
-      <a href="#" className="tw-underline hover:tw-no-underline">
-        links
-      </a>
-      , and <span className="tw-font-bold">styling</span> can also be provided.
-    </p>
-  ),
-  variant: "notice",
-}
-
 WarningCustom.parameters = {
   docs: {
     storyDescription:
@@ -65,4 +59,18 @@ WarningCustom.argTypes = {
     description: "Component accepts a string, or element(s).",
     control: "object",
   },
+}
+WarningCustom.storyName = "Non-string children"
+
+WarningCustom.args = {
+  children: (
+    <p>
+      Child elements like{" "}
+      <a href="#" className="tw-underline hover:tw-no-underline">
+        links
+      </a>
+      , and <span className="tw-font-bold">styling</span> can also be provided.
+    </p>
+  ),
+  variant: "notice",
 }

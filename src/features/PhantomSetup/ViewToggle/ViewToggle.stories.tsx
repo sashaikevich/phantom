@@ -13,23 +13,42 @@ export default {
   component: ViewToggle,
   parameters: {
     componentSubtitle:
-      "Allow user to toggle visibility of settings sections by selecting different views.",
+      "Allow user to toggle which settings are shown in the Phantom/Flow setup area.",
   },
   decorators: [withWrapAndLabel, withViewContext, withRouter],
 } as ComponentMeta<typeof ViewToggle>
 
-const storyViews: ViewModeType[] = [
-  { label: "Quick Setup", slug: "quick" },
-  { label: "All settings", slug: "all" },
-  { label: "JSON", slug: "json" },
-]
 const Template: ComponentStory<typeof ViewToggle> = args => (
   <ViewToggle {...args} />
 )
 
-export const Default = Template.bind({})
-Default.args = { viewModes: storyViews }
-
-Default.argTypes = {
-  viewModes: { table: { disable: true } },
+export const Short = Template.bind({})
+Short.args = {
+  viewModes: [
+    { label: "Quick Setup", slug: "quick" },
+    { label: "All Settings", slug: "all" },
+  ] as ViewModeType[],
 }
+
+
+export const Long = Template.bind({})
+Long.args = {
+  viewModes: [
+    { label: "Quick Setup", slug: "quick" },
+    { label: "XXXXXXX", slug: "xxxx" },
+    { label: "YYYYYYY", slug: "yyyy" },
+    { label: "ZZZZZZZ", slug: "zzzz" },
+    { label: "All Settings", slug: "all" },
+    { label: "JSON", slug: "json" },
+  ] as ViewModeType[],
+}
+Long.parameters = {
+  docs: {
+    storyDescription:
+      "Settings Page should be proived an array of view options (comprised of predefined options for consistency across the platform), and the active view is pulled from context. That context updates the sidebar and sections/subsections.",
+  },
+}
+
+// Default.argTypes = {
+//   // viewModes: { table: { disable: true } },
+// }
