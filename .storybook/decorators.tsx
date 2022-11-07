@@ -6,7 +6,7 @@ import {
 import { ViewProvider } from "../src/contexts/viewContext"
 import { DecoratorFn } from "@storybook/react"
 import { withRouter } from "storybook-addon-react-router-v6"
-export { withRouter } from "storybook-addon-react-router-v6"
+export { withRouter }
 
 export const withSetupContext: DecoratorFn = (Story, context) => {
   return (

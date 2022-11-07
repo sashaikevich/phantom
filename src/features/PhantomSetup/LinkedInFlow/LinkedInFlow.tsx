@@ -22,7 +22,7 @@ import { InfoBox } from "../../../components"
 import { useViewContext } from "../../../contexts/viewContext"
 
 export const LinkedInFlow = () => {
-  const { viewModes, activeView} = useViewContext()
+  const { viewModes, activeView } = useViewContext()
   return (
     <>
       <PhantomHeader />

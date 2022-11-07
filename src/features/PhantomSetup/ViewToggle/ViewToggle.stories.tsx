@@ -5,8 +5,9 @@ import { ViewModeType } from "../d"
 import {
   withWrapAndLabel,
   withViewContext,
-  withRouter,
+   withRouter 
 } from "../../../../.storybook/decorators"
+
 
 export default {
   title: "Phantom Setup/ViewToggle",
@@ -29,7 +30,6 @@ Short.args = {
     { label: "All Settings", slug: "all" },
   ] as ViewModeType[],
 }
-
 
 export const Long = Template.bind({})
 Long.args = {

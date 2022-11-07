@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { SearchGroup } from "./SearchGroup"
 
 import { decorators } from "../../../../.storybook/decorators"
-
+console.log(decorators);
 export default {
   title: "Phantom Setup/Search Group",
   component: SearchGroup,

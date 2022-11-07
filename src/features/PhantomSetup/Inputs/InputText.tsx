@@ -50,6 +50,7 @@ export const InputText = ({
           {...(required && { required: true })}
           placeholder={placeholder}
           mappedName={mappedName}
+          {...props}
           id={forId}
         />
       ) : (

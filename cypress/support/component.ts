@@ -14,9 +14,11 @@
 // ***********************************************************
 
 // get storybook's decorators to work
-import * as sbPreview from "../../.storybook/preview"
-import * as sbDecorators from "../../.storybook/decorators"
+import { setProjectAnnotations } from "@storybook/react"
+import * as projectAnnotations from "../../.storybook/preview"
+// import * as sbDecorators from "../../.storybook/decorators"
 
+setProjectAnnotations(projectAnnotations);
 // Import commands.js using ES2015 syntax:
 import "./commands"
 

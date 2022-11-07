@@ -3,7 +3,7 @@ import { flattenMenu } from "../../../utils"
 import {
   ViewModeType,
   FlowMenuItemType,
-  PhantomSetupType,
+  PhantomSetupFieldsMap,
   SendScheduleType,
   ManageFoldersType,
   PreferredProxyType,
@@ -74,7 +74,7 @@ export const flatMenu = flattenMenu(flowLinkedInMenu)
 // */
 // export type FlowLinkedInType = Partial<PhantomSetupType>
 
-export const INITIAL_CONFIG: PhantomSetupType = {
+export const INITIAL_CONFIG: PhantomSetupFieldsMap = {
   searchTerm: "",
   searchType: "",
   dataColumn: "",

@@ -4,16 +4,16 @@ import {
   INITIAL_CONFIG,
 } from "../features/PhantomSetup/_MOCK_DATA/MOCK_DATA"
 
-import { PhantomSetupType, PhantomSetupKeys } from "../features/PhantomSetup/d"
+import { PhantomSetupFieldsMap, PhantomSetupKeys } from "../features/PhantomSetup/d"
 
 import { useImmer } from "use-immer"
 
 interface SetupContextType {
   flatMenu: typeof flatMenu
   data: typeof INITIAL_CONFIG
-  updateField: <K extends keyof PhantomSetupType>(
+  updateField: <K extends keyof PhantomSetupFieldsMap>(
     field: K,
-    value: PhantomSetupType[K]
+    value: PhantomSetupFieldsMap[K]
   ) => void
   isValid: boolean
   isLaunched: boolean
@@ -38,7 +38,7 @@ export const SetupProvider = ({ children }: SetupContextProviderProps) => {
 
   function updateField<K extends PhantomSetupKeys>(
     field: K,
-    value: PhantomSetupType[K]
+    value: PhantomSetupFieldsMap[K]
   ): void {
     setData(draft => {
       draft[field] = value

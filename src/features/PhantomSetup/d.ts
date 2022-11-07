@@ -99,7 +99,7 @@ export enum IPLifespanType {
   Dynamic = "DYNAMIC",
 }
 
-export type PhantomSetupType = {
+export type PhantomSetupFieldsMap = {
   searchTerm: string
   searchType: string
   dataColumn: string
@@ -139,6 +139,6 @@ export type PhantomSetupType = {
   webhook: string
 }
 
-export type PhantomSetupKeys = keyof PhantomSetupType
+export type PhantomSetupKeys = keyof PhantomSetupFieldsMap
 
-export type PhantomSetupValues = PhantomSetupType[PhantomSetupKeys]
+export type PhantomSetupValues = PhantomSetupFieldsMap[PhantomSetupKeys]

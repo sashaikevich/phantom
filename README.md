@@ -37,7 +37,11 @@ The object's keys and values are typed and added to the library of types. So, wh
 
 Example test directly on stories, to demostrate best practice / minimal divergence.
 
+todo: get rid of typecasting, 
+todo: make my return object stricter
+todo: launch storybook somewhere
 todo: add coverage
 todo: consider mocking something to wow the g's
 todo: ### Cypress
 todo: maybe do a CI/CD deploy with GH's actions?
+
